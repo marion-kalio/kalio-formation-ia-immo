@@ -1,0 +1,1165 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Formation IA Immobilier · 19 juin 2026 · Économisez 5 à 10h/semaine avec l'IA</title>
+<meta name="description" content="Formation 6h en personne pour investisseurs immobiliers de 5 à 100 portes. Maîtrisez Claude, Cowork et l'IA appliquée à la gestion d'immeubles. 19 juin 2026, Montréal.">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Formation IA Immobilier · 19 juin 2026">
+<meta property="og:description" content="6h pour économiser 5 à 10h par semaine avec l'IA dans votre gestion immobilière. 5-100 portes. Cas concrets live.">
+<meta property="og:type" content="website">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800;9..144,900&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --blue: #0077FF;
+  --teal: #00E5CC;
+  --bg: #06060c;
+  --bg-2: #0c0c14;
+  --card: rgba(255,255,255,0.04);
+  --card-hover: rgba(0,229,204,0.06);
+  --border: rgba(255,255,255,0.08);
+  --border-hover: rgba(0,229,204,0.25);
+  --text: #f0f0f5;
+  --text-2: #9898ab;
+  --text-3: #6a6a7e;
+  --gradient: linear-gradient(135deg, #0077FF, #00E5CC);
+  --serif: 'Fraunces', Georgia, serif;
+  --sans: 'Inter', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  opacity: 0.025;
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+.glow-bg {
+  position: fixed;
+  top: -20%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 1200px;
+  background: radial-gradient(circle, rgba(0,119,255,0.15) 0%, rgba(0,229,204,0.08) 30%, transparent 60%);
+  filter: blur(80px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.topbar {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border);
+  background: rgba(6,6,12,0.7);
+  backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.topbar-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.brand {
+  font-family: var(--serif);
+  font-weight: 800;
+  font-size: 18px;
+  letter-spacing: -0.02em;
+}
+.brand .dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--gradient);
+  margin-right: 8px;
+  vertical-align: middle;
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(0.85); }
+}
+.topbar-cta {
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--gradient);
+  padding: 10px 18px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+  white-space: nowrap;
+}
+.topbar-cta:hover { transform: scale(1.04); }
+
+.hero {
+  padding: 80px 0 100px;
+  position: relative;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--teal);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 8px 16px;
+  border: 1px solid rgba(0,229,204,0.3);
+  border-radius: 100px;
+  background: rgba(0,229,204,0.05);
+  margin-bottom: 32px;
+}
+.eyebrow .pulse-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--teal);
+  border-radius: 50%;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+h1.hero-title {
+  font-family: var(--serif);
+  font-size: clamp(42px, 7vw, 88px);
+  font-weight: 900;
+  line-height: 1.0;
+  letter-spacing: -0.035em;
+  margin-bottom: 32px;
+  max-width: 14ch;
+}
+h1.hero-title em {
+  font-style: italic;
+  font-weight: 400;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-sub {
+  font-size: clamp(18px, 2.2vw, 22px);
+  color: var(--text-2);
+  max-width: 60ch;
+  line-height: 1.55;
+  margin-bottom: 48px;
+  font-weight: 300;
+}
+.hero-sub strong { color: var(--text); font-weight: 500; }
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  margin-bottom: 48px;
+  padding: 24px;
+  border-radius: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+.meta-item { display: flex; flex-direction: column; gap: 4px; }
+.meta-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-3);
+}
+.meta-value {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.hero-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--sans);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--bg);
+  background: var(--gradient);
+  padding: 18px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 40px rgba(0,119,255,0.3);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 50px rgba(0,229,204,0.4);
+}
+.btn-primary .arrow { transition: transform 0.25s ease; }
+.btn-primary:hover .arrow { transform: translateX(4px); }
+
+.hero-guarantee {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.section { padding: 100px 0; position: relative; }
+.section-label {
+  font-family: var(--mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--teal);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-label::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--teal);
+}
+.section-title {
+  font-family: var(--serif);
+  font-size: clamp(34px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 24px;
+  max-width: 20ch;
+}
+.section-title em {
+  font-style: italic;
+  font-weight: 400;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.section-intro {
+  font-size: 19px;
+  color: var(--text-2);
+  max-width: 60ch;
+  line-height: 1.6;
+  margin-bottom: 56px;
+  font-weight: 300;
+}
+
+.pain-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+.pain-card {
+  padding: 28px 24px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: var(--card);
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.pain-card::before {
+  content: attr(data-num);
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-family: var(--serif);
+  font-size: 48px;
+  font-weight: 800;
+  color: var(--bg-2);
+  opacity: 0.6;
+  line-height: 1;
+}
+.pain-card:hover {
+  border-color: var(--border-hover);
+  background: var(--card-hover);
+  transform: translateY(-3px);
+}
+.pain-card-title {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  line-height: 1.2;
+  position: relative;
+  z-index: 1;
+}
+.pain-card-text {
+  font-size: 15px;
+  color: var(--text-2);
+  line-height: 1.55;
+  position: relative;
+  z-index: 1;
+}
+
+.promise {
+  background: linear-gradient(180deg, transparent, rgba(0,119,255,0.04));
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.promise-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.promise-numbers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.stat {
+  padding: 32px 24px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: var(--card);
+  text-align: left;
+}
+.stat-num {
+  font-family: var(--serif);
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 1;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -0.04em;
+  margin-bottom: 8px;
+}
+.stat-label {
+  font-size: 14px;
+  color: var(--text-2);
+  line-height: 1.4;
+}
+
+.program-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border-top: 1px solid var(--border);
+}
+.program-item {
+  display: grid;
+  grid-template-columns: 80px 1fr auto;
+  gap: 32px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--border);
+  align-items: start;
+  transition: all 0.25s ease;
+}
+.program-item:hover {
+  background: rgba(0,229,204,0.025);
+  padding-left: 16px;
+  padding-right: 16px;
+}
+.program-num {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-3);
+  font-weight: 500;
+  padding-top: 6px;
+}
+.program-body h3 {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.program-body p {
+  font-size: 15px;
+  color: var(--text-2);
+  line-height: 1.55;
+  max-width: 56ch;
+}
+.program-tag {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--teal);
+  padding: 6px 12px;
+  border: 1px solid rgba(0,229,204,0.3);
+  border-radius: 100px;
+  background: rgba(0,229,204,0.05);
+  white-space: nowrap;
+  margin-top: 8px;
+}
+
+.cases-section {
+  background: linear-gradient(180deg, transparent, rgba(0,229,204,0.03), transparent);
+}
+.cases-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+}
+.case-card {
+  padding: 22px 20px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card);
+  transition: all 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.case-card:hover {
+  border-color: var(--border-hover);
+  background: var(--card-hover);
+  transform: translateY(-2px);
+}
+.case-icon {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--teal);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.case-title {
+  font-family: var(--serif);
+  font-size: 19px;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+.case-desc {
+  font-size: 13.5px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+
+.host {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 60px;
+  align-items: center;
+}
+.host-visual {
+  position: relative;
+  aspect-ratio: 4/5;
+  border-radius: 24px;
+  background: var(--gradient);
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 32px;
+}
+.host-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(6,6,12,0.85));
+}
+.host-mono {
+  position: relative;
+  z-index: 2;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  line-height: 1.8;
+}
+.host-mono .big {
+  display: block;
+  font-family: var(--serif);
+  font-size: 36px;
+  font-weight: 800;
+  color: var(--text);
+  text-transform: none;
+  letter-spacing: -0.02em;
+  margin-top: 8px;
+  line-height: 1;
+}
+.host-bio h2 { margin-bottom: 24px; }
+.host-bio p {
+  font-size: 17px;
+  color: var(--text-2);
+  line-height: 1.65;
+  margin-bottom: 16px;
+  font-weight: 300;
+}
+.host-bio p strong { color: var(--text); font-weight: 500; }
+.host-credentials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 24px;
+}
+.credential {
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  background: var(--card);
+}
+
+.for-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.for-card {
+  padding: 32px 28px;
+  border-radius: 20px;
+  border: 1px solid var(--border);
+}
+.for-card.yes { background: rgba(0,229,204,0.04); border-color: rgba(0,229,204,0.2); }
+.for-card.no { background: rgba(255,255,255,0.02); }
+.for-card h3 {
+  font-family: var(--serif);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+.for-card.yes h3::before { content: '✓ '; color: var(--teal); }
+.for-card.no h3::before { content: '✗ '; color: var(--text-3); }
+.for-card ul { list-style: none; }
+.for-card li {
+  font-size: 15px;
+  line-height: 1.5;
+  padding: 10px 0;
+  color: var(--text-2);
+  border-bottom: 1px dashed var(--border);
+}
+.for-card li:last-child { border-bottom: none; }
+
+.pricing-card {
+  max-width: 580px;
+  margin: 0 auto;
+  padding: 48px 40px;
+  border-radius: 28px;
+  border: 1px solid var(--border-hover);
+  background: linear-gradient(180deg, rgba(0,229,204,0.05), rgba(0,119,255,0.04));
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.pricing-card::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(0,229,204,0.15), transparent 70%);
+  filter: blur(40px);
+}
+.pricing-badge {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--teal);
+  padding: 6px 14px;
+  border: 1px solid rgba(0,229,204,0.3);
+  border-radius: 100px;
+  background: rgba(0,229,204,0.08);
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 1;
+}
+.pricing-price {
+  font-family: var(--serif);
+  font-size: clamp(56px, 8vw, 96px);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+.pricing-sub {
+  font-size: 15px;
+  color: var(--text-2);
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
+}
+.pricing-includes {
+  text-align: left;
+  display: grid;
+  gap: 12px;
+  margin-bottom: 36px;
+  position: relative;
+  z-index: 1;
+}
+.pricing-includes li {
+  font-size: 15px;
+  color: var(--text);
+  list-style: none;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  line-height: 1.5;
+}
+.pricing-includes li::before {
+  content: '→';
+  color: var(--teal);
+  font-weight: 700;
+  flex-shrink: 0;
+}
+.pricing-scarcity {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-3);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.faq-list { display: flex; flex-direction: column; gap: 12px; }
+details.faq-item {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: var(--card);
+  overflow: hidden;
+  transition: all 0.25s ease;
+}
+details.faq-item[open] {
+  border-color: var(--border-hover);
+  background: var(--card-hover);
+}
+.faq-item summary {
+  padding: 22px 24px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+';
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 26px;
+  color: var(--teal);
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+.faq-item[open] summary::after { transform: rotate(45deg); }
+.faq-answer {
+  padding: 0 24px 24px;
+  font-size: 15px;
+  color: var(--text-2);
+  line-height: 1.65;
+}
+.faq-answer p + p { margin-top: 12px; }
+
+.final {
+  text-align: center;
+  padding: 120px 0;
+  position: relative;
+}
+.final::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(0,119,255,0.15), transparent 60%);
+  filter: blur(80px);
+  z-index: 0;
+}
+.final > * { position: relative; z-index: 1; }
+.final h2 {
+  font-family: var(--serif);
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 900;
+  line-height: 1.05;
+  letter-spacing: -0.035em;
+  margin: 0 auto 24px;
+  max-width: 16ch;
+}
+.final h2 em {
+  font-style: italic;
+  font-weight: 400;
+  background: var(--gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.final p {
+  font-size: 19px;
+  color: var(--text-2);
+  margin-bottom: 40px;
+  max-width: 52ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-3);
+  text-align: center;
+}
+footer a { color: var(--text-2); text-decoration: none; }
+footer a:hover { color: var(--teal); }
+
+@media (max-width: 768px) {
+  .section { padding: 64px 0; }
+  .hero { padding: 48px 0 64px; }
+  .hero-meta { flex-direction: column; gap: 16px; padding: 20px; }
+  .promise-grid, .host, .for-grid { grid-template-columns: 1fr; gap: 32px; }
+  .promise-numbers { grid-template-columns: 1fr 1fr; }
+  .program-item { grid-template-columns: 1fr; gap: 8px; padding: 24px 0; }
+  .program-num { padding-top: 0; }
+  .pricing-card { padding: 32px 24px; }
+  .host-visual { aspect-ratio: 3/2; }
+  .topbar-cta { padding: 8px 14px; font-size: 12px; }
+  .brand { font-size: 15px; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<div class="glow-bg"></div>
+
+<header class="topbar">
+  <div class="container topbar-inner">
+    <div class="brand"><span class="dot"></span>Formation IA Immobilier</div>
+    <a href="#inscription" class="topbar-cta">Réserver ma place →</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">
+      <span class="pulse-dot"></span>
+      Vendredi 19 juin 2026 · Montréal · 6 heures
+    </div>
+
+    <h1 class="hero-title">
+      Économisez <em>5 à 10 heures</em> par semaine sur la gestion de vos immeubles
+    </h1>
+
+    <p class="hero-sub">
+      Une formation de <strong>6 heures en personne</strong> pour investisseurs immobiliers de <strong>5 à 100 portes</strong>. On part des bases de l'IA et on construit ensemble, en salle, les outils Claude et Cowork qui automatisent votre prospection, votre gestion locataires, vos analyses d'immeubles et votre paperasse légale.
+    </p>
+
+    <div class="hero-meta">
+      <div class="meta-item">
+        <span class="meta-label">Date</span>
+        <span class="meta-value">19 juin 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Durée</span>
+        <span class="meta-value">6 heures en personne</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Investissement</span>
+        <span class="meta-value">500 $ par personne</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Places</span>
+        <span class="meta-value">Limitées</span>
+      </div>
+    </div>
+
+    <div class="hero-cta-row">
+      <a href="#inscription" class="btn-primary">
+        Réserver ma place <span class="arrow">→</span>
+      </a>
+      <span class="hero-guarantee">Format intime · groupe restreint · cas concrets live</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-label">Le constat</div>
+    <h2 class="section-title">Vous gérez votre portefeuille comme en <em>2015</em>.</h2>
+    <p class="section-intro">
+      Pendant que vous répondez encore aux courriels de locataires un à un, que vous montez vos analyses d'immeubles à la mitaine et que vous relisez vos baux ligne par ligne, d'autres investisseurs ont déjà délégué 80% de ce travail à l'IA. La différence ne se compte plus en heures. Elle se compte en doors achetées.
+    </p>
+
+    <div class="pain-grid">
+      <div class="pain-card" data-num="01">
+        <div class="pain-card-title">Les courriels qui mangent vos soirées</div>
+        <div class="pain-card-text">Réponses aux locataires, suivis avec les fournisseurs, négociations avec les banques. Toujours les mêmes patterns, jamais automatisés.</div>
+      </div>
+      <div class="pain-card" data-num="02">
+        <div class="pain-card-title">Les analyses qui prennent une journée</div>
+        <div class="pain-card-text">Calculer MRB, TGA, cashflow par porte sur une annonce Centris. Vous le faites encore manuellement dans un Excel, immeuble par immeuble.</div>
+      </div>
+      <div class="pain-card" data-num="03">
+        <div class="pain-card-title">Les documents légaux qui font peur</div>
+        <div class="pain-card-text">Avis de hausse, fin de bail, mise en demeure. Vous googlez, vous demandez à un ami, vous payez un avocat. Chaque fois.</div>
+      </div>
+      <div class="pain-card" data-num="04">
+        <div class="pain-card-title">Le rapport d'inspection de 80 pages</div>
+        <div class="pain-card-text">Vous le scrollez en diagonale en espérant ne rien manquer de critique. Et vous signez quand même votre offre conditionnelle.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section promise">
+  <div class="container">
+    <div class="promise-grid">
+      <div>
+        <div class="section-label">La promesse</div>
+        <h2 class="section-title">Ce que vous repartez avec, le <em>19 juin au soir</em>.</h2>
+        <p class="section-intro">
+          Pas de théorie qui s'évapore en sortant de la salle. Vous repartez avec votre propre configuration Claude, vos skills, vos projets, et la capacité de répliquer chaque cas concret dès le lundi matin sur vos vrais immeubles.
+        </p>
+      </div>
+      <div class="promise-numbers">
+        <div class="stat">
+          <div class="stat-num">5-10h</div>
+          <div class="stat-label">Économisées par semaine, dès la première semaine d'application</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">12+</div>
+          <div class="stat-label">Cas concrets construits ensemble en salle</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Sans coder. Sans dev. Sans abonnement compliqué.</div>
+        </div>
+        <div class="stat">
+          <div class="stat-num">0$</div>
+          <div class="stat-label">À investir en outils additionnels après la formation</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-label">Programme</div>
+    <h2 class="section-title">Six heures, <em>quatre temps</em>.</h2>
+    <p class="section-intro">
+      On commence par les fondations. On finit avec vos propres outils opérationnels. Entre les deux, on construit ensemble, en direct, les cas qui changent une semaine de travail.
+    </p>
+
+    <div class="program-list">
+      <div class="program-item">
+        <div class="program-num">01</div>
+        <div class="program-body">
+          <h3>Les fondations de l'IA appliquée</h3>
+          <p>Comprendre comment l'IA fonctionne vraiment, ce qu'elle peut faire et ce qu'elle ne peut pas faire. Configurer Claude correctement pour votre contexte d'investisseur immobilier au Québec. Construire vos premiers prompts qui ne se font pas oublier.</p>
+        </div>
+        <div class="program-tag">Bases</div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-num">02</div>
+        <div class="program-body">
+          <h3>Skills et projets sur mesure</h3>
+          <p>Créer vos skills personnalisés (analyse de deal, réponse locataire, avis TAL, etc.) qui rendent Claude expert de votre métier. Organiser vos projets pour réutiliser vos contextes et accélérer chaque tâche récurrente.</p>
+        </div>
+        <div class="program-tag">Atelier</div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-num">03</div>
+        <div class="program-body">
+          <h3>Cowork : votre opérations center</h3>
+          <p>L'outil qui change tout. Démos live et mises en application sur vos vrais cas : prospection, gestion courriels, factures, annonces, communications locataires, devis, analyses d'immeubles, documents légaux, refinancement, dossiers, offres d'achat, rapports d'inspection.</p>
+        </div>
+        <div class="program-tag">Cas concrets</div>
+      </div>
+
+      <div class="program-item">
+        <div class="program-num">04</div>
+        <div class="program-body">
+          <h3>Introduction aux agents IA</h3>
+          <p>Aller plus loin que le chat. Comprendre comment les agents IA peuvent exécuter des tâches complètes à votre place. Quelles opportunités pour les investisseurs et gestionnaires, quelles limites, comment se positionner pour les 12 prochains mois.</p>
+        </div>
+        <div class="program-tag">Avancé</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section cases-section">
+  <div class="container">
+    <div class="section-label">12 cas concrets</div>
+    <h2 class="section-title">Construits <em>ensemble</em>, dans la salle.</h2>
+    <p class="section-intro">
+      Chaque cas est démontré en direct, puis répliqué par vous sur votre propre ordinateur. Vous repartez avec les outils prêts à servir le lundi matin.
+    </p>
+
+    <div class="cases-grid">
+      <div class="case-card"><div class="case-icon">01 · Prospection</div><div class="case-title">Trouver vos prochains immeubles</div><div class="case-desc">Identifier les bonnes annonces, automatiser la veille Centris, qualifier rapidement.</div></div>
+      <div class="case-card"><div class="case-icon">02 · Courriels</div><div class="case-title">Gérer votre inbox</div><div class="case-desc">Trier, classer, répondre. L'IA s'occupe de 80% des messages récurrents.</div></div>
+      <div class="case-card"><div class="case-icon">03 · Factures</div><div class="case-title">Gestion des factures fournisseurs</div><div class="case-desc">Extraction automatique des montants, classement par immeuble, suivi des paiements.</div></div>
+      <div class="case-card"><div class="case-icon">04 · Annonces</div><div class="case-title">Rédaction d'annonces de location</div><div class="case-desc">Facebook Marketplace, Kijiji, MLS. Annonces optimisées en quelques secondes.</div></div>
+      <div class="case-card"><div class="case-icon">05 · Locataires</div><div class="case-title">Communications locataires</div><div class="case-desc">Réponses professionnelles, conformes au C.c.Q., dans votre ton, en 30 secondes.</div></div>
+      <div class="case-card"><div class="case-icon">06 · Devis</div><div class="case-title">Analyse de devis entrepreneurs</div><div class="case-desc">Comparer plusieurs soumissions, repérer les anomalies, négocier intelligemment.</div></div>
+      <div class="case-card"><div class="case-icon">07 · Analyse</div><div class="case-title">Analyse d'immeuble en 3 minutes</div><div class="case-desc">MRB, TGA, cashflow par porte, verdict Go/No-Go à partir d'une annonce.</div></div>
+      <div class="case-card"><div class="case-icon">08 · Légal</div><div class="case-title">Rédaction de documents légaux</div><div class="case-desc">Avis de hausse, fin de bail, mise en demeure conformes au TAL.</div></div>
+      <div class="case-card"><div class="case-icon">09 · Refinancement</div><div class="case-title">Analyse de refinancement</div><div class="case-desc">Comparer les offres, calculer l'impact sur le cashflow, choisir la bonne.</div></div>
+      <div class="case-card"><div class="case-icon">10 · Dossiers</div><div class="case-title">Organisation des dossiers</div><div class="case-desc">Classement intelligent des baux, contrats, plans, photos par immeuble.</div></div>
+      <div class="case-card"><div class="case-icon">11 · Offre d'achat</div><div class="case-title">Préparation d'offres d'achat</div><div class="case-desc">Clauses, conditions, contre-offres. Une trame solide en quelques minutes.</div></div>
+      <div class="case-card"><div class="case-icon">12 · Inspection</div><div class="case-title">Analyse de rapport d'inspection</div><div class="case-desc">Extraire les points critiques d'un rapport de 80 pages en 5 minutes.</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-label">Qui anime</div>
+    <div class="host">
+      <div class="host-visual">
+        <div class="host-mono">
+          L'instructrice
+          <span class="big">Marion<br>Verschaeve</span>
+        </div>
+      </div>
+      <div class="host-bio">
+        <h2 class="section-title">L'IA appliquée, par <em>quelqu'un qui en vit</em>.</h2>
+        <p>
+          Marion est la fondatrice de <strong>Kalio</strong>, la première plateforme IA québécoise dédiée aux gestionnaires immobiliers. Ses produits gèrent déjà des milliers de portes au Québec : appels locataires, qualification de prospects, tickets de maintenance, communications.
+        </p>
+        <p>
+          Elle ne donne pas cette formation comme une consultante qui a lu trois livres. Elle l'enseigne parce qu'elle construit et opère ces systèmes au quotidien, et qu'elle a vu trop d'investisseurs payer des heures de travail à des humains pour ce que l'IA fait gratuitement, mieux et plus vite.
+        </p>
+        <p>
+          Diplômée de HEC Montréal, MREX C13, investisseuse immobilière, entrepreneure en IA. <strong>Le pont rare entre les deux mondes.</strong>
+        </p>
+        <div class="host-credentials">
+          <div class="credential">CEO Kalio</div>
+          <div class="credential">HEC Montréal</div>
+          <div class="credential">MREX C13</div>
+          <div class="credential">Investisseuse immo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-label">Pour qui</div>
+    <h2 class="section-title">Cette formation est <em>faite pour vous</em> si...</h2>
+
+    <div class="for-grid">
+      <div class="for-card yes">
+        <h3>Vous êtes au bon endroit</h3>
+        <ul>
+          <li>Vous possédez entre 5 et 100 portes</li>
+          <li>Vous gérez vous-même ou avec une petite équipe</li>
+          <li>Vous voulez scaler sans embaucher d'admin</li>
+          <li>Vous êtes prêt à apprendre un nouvel outil pour gagner du temps</li>
+          <li>Vous voulez rester autonome, pas dépendre d'un fournisseur</li>
+        </ul>
+      </div>
+      <div class="for-card no">
+        <h3>Cette formation n'est pas pour vous si</h3>
+        <ul>
+          <li>Vous gérez 500+ portes (parlons de Kalio plutôt)</li>
+          <li>Vous voulez un outil clé en main sans rien apprendre</li>
+          <li>Vous pensez que l'IA est une mode passagère</li>
+          <li>Vous n'êtes pas prêt à passer 1h par semaine à appliquer</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="inscription">
+  <div class="container">
+    <div class="pricing-card">
+      <div class="pricing-badge">Cohorte du 19 juin 2026</div>
+      <div class="pricing-price">500 $</div>
+      <div class="pricing-sub">Investissement unique · taxes en sus · paiement sécurisé</div>
+
+      <ul class="pricing-includes">
+        <li>6 heures de formation en personne, en petit groupe</li>
+        <li>12 cas concrets construits avec vous, prêts à utiliser le lundi matin</li>
+        <li>Configuration Claude personnalisée pour votre contexte</li>
+        <li>Skills et projets adaptés à l'immobilier locatif québécois</li>
+        <li>Démos live de Cowork sur de vrais dossiers d'investisseurs</li>
+        <li>Introduction aux agents IA et opportunités à venir</li>
+        <li>Repas et collations inclus</li>
+      </ul>
+
+      <a href="#" class="btn-primary" style="width: 100%; justify-content: center;">
+        Réserver ma place maintenant <span class="arrow">→</span>
+      </a>
+
+      <div class="pricing-scarcity">Places limitées · cohorte intime · pas de rediffusion</div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container" style="max-width: 880px;">
+    <div class="section-label">Questions fréquentes</div>
+    <h2 class="section-title">Ce que les gens nous demandent <em>avant de s'inscrire</em>.</h2>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>Je ne suis pas techno. Est-ce que je vais comprendre ?</summary>
+        <div class="faq-answer">
+          <p>Oui. La formation part vraiment des bases. Si vous savez utiliser un courriel, vous allez suivre. Marion n'utilise jamais de jargon technique inutile, et chaque concept est immédiatement appliqué sur un cas concret d'investisseur immobilier.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Est-ce que je dois acheter quelque chose en plus pour appliquer ?</summary>
+        <div class="faq-answer">
+          <p>Non. Tous les outils utilisés (Claude, Cowork) ont des versions accessibles. Vous repartez avec ce qu'il faut pour appliquer dès le lundi matin, sans investissement additionnel.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>J'ai déjà essayé ChatGPT et ça ne m'a pas convaincu. Pourquoi ce serait différent ?</summary>
+        <div class="faq-answer">
+          <p>C'est probablement la question la plus honnête. La majorité des gens ouvrent ChatGPT, posent une question générique et concluent que l'IA n'est pas utile. La vraie différence vient des skills, des projets, et de la façon dont vous configurez l'outil pour votre contexte.</p>
+          <p>C'est exactement ce que vous allez construire en salle. Pas une utilisation générique, votre propre système.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Pourquoi en personne et pas en ligne ?</summary>
+        <div class="faq-answer">
+          <p>Parce que les formations IA en ligne ont un taux d'application post-formation proche de zéro. Les gens regardent les vidéos, prennent quelques notes, et n'appliquent jamais. En salle, on construit ensemble, on bloque les distractions, on règle les blocages en direct. Vous repartez avec des outils fonctionnels, pas avec des notes à lire plus tard.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Quelle est la différence avec Kalio ?</summary>
+        <div class="faq-answer">
+          <p>Kalio est une plateforme IA pour gestionnaires de 75+ portes qui veulent une solution clé en main, avec accompagnement humain et intégrations PMS profondes. La formation est pour les investisseurs qui veulent rester autonomes et construire eux-mêmes leurs outils.</p>
+          <p>Si vous avez 200 portes et zéro temps, Kalio est probablement la meilleure option. Si vous voulez apprendre, comprendre et maîtriser, c'est la formation.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Et si je ne peux pas venir le 19 juin ?</summary>
+        <div class="faq-answer">
+          <p>D'autres cohortes seront ouvertes durant l'année. Inscrivez-vous quand même à la liste d'attente pour être informé en priorité. Les places partent vite et nous gardons les groupes intimes pour préserver la qualité.</p>
+        </div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Politique d'annulation ?</summary>
+        <div class="faq-answer">
+          <p>Remboursement complet jusqu'à 14 jours avant la date. Transfert vers une cohorte ultérieure possible jusqu'à 48h avant.</p>
+        </div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="container">
+    <h2>Dans 4 semaines, vous aurez soit <em>récupéré</em> votre temps, soit perdu une autre semaine de plus.</h2>
+    <p>Le 19 juin 2026. Six heures. Une seule fois pour cette cohorte. Inscription ouverte maintenant.</p>
+    <a href="#inscription" class="btn-primary">
+      Réserver ma place <span class="arrow">→</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Formation IA Immobilier · Une initiative <a href="https://kalio.ca">Kalio</a> · <a href="mailto:formation@kalio.ca">formation@kalio.ca</a></p>
+    <p style="margin-top: 8px;">© 2026 Agence Mind Mint Inc.</p>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.section, .hero, .pain-card, .case-card, .program-item, .stat').forEach(el => {
+  el.classList.add('reveal');
+  observer.observe(el);
+});
+</script>
+
+</body>
+</html>
