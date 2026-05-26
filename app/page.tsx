@@ -830,7 +830,7 @@ function Trainer() {
   ];
 
   return (
-    <section id="trainer" className="py-24 sm:py-32">
+    <section id="trainer" className="py-24 sm:py-32 overflow-hidden">
       <div className="wrap grid lg:grid-cols-[1fr_1.3fr] gap-12 lg:gap-20 items-center">
         <Reveal className="relative">
           <div className="relative mx-auto max-w-[420px]">
@@ -1125,13 +1125,28 @@ function Testimonials() {
         </Reveal>
 
         <Reveal delay={1}>
-          <div className="grid grid-cols-3 gap-3 max-w-2xl mx-auto mb-14">
+          <div className="grid grid-cols-3 gap-2 sm:gap-3 max-w-2xl mx-auto mb-14">
             {stats.map((s, i) => (
-              <div key={i} className="card text-center">
-                <div className="text-gradient-signature" style={{ fontFamily: "var(--font-display)", fontSize: "clamp(28px, 4vw, 44px)", fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1 }}>
+              <div
+                key={i}
+                className="bg-white border border-line rounded-2xl text-center min-w-0"
+                style={{ padding: "clamp(0.875rem, 3vw, 1.5rem) clamp(0.5rem, 2vw, 1rem)" }}
+              >
+                <div
+                  className="text-gradient-signature"
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontSize: "clamp(26px, 5.5vw, 44px)",
+                    fontWeight: 700,
+                    letterSpacing: "-0.03em",
+                    lineHeight: 1,
+                  }}
+                >
                   {s.v}
                 </div>
-                <div className="text-[10.5px] tracking-[0.18em] uppercase text-muted mt-2 font-medium">{s.l}</div>
+                <div className="text-[9px] sm:text-[10.5px] tracking-[0.08em] sm:tracking-[0.18em] uppercase text-muted mt-2 font-medium leading-tight break-words">
+                  {s.l}
+                </div>
               </div>
             ))}
           </div>
