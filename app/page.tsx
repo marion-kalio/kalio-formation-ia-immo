@@ -27,6 +27,7 @@ import {
   Wand2,
   Phone,
   Search,
+  Sparkles,
   Home as HomeIcon,
   MessageCircle,
   Monitor,
@@ -660,13 +661,14 @@ function Agenda() {
     },
   ];
 
-  const logistics = [
+  const logistics: { icon: ReactNode; label: string; value: string; sub?: string }[] = [
     { icon: <Calendar className="size-[18px]" />, label: "Date", value: "Vendredi 19 juin 2026" },
     { icon: <Clock className="size-[18px]" />, label: "Heure", value: "9 h à 16 h" },
     { icon: <MapPin className="size-[18px]" />, label: "Lieu", value: "Hôtel Escad · Dix30 · Brossard" },
     { icon: <Coffee className="size-[18px]" />, label: "Repas", value: "Café d'accueil + dîner inclus" },
     { icon: <Users className="size-[18px]" />, label: "Places", value: "Limité à 40 participants" },
     { icon: <ShieldCheck className="size-[18px]" />, label: "Garantie", value: "5 h/sem ou remboursé" },
+    { icon: <Sparkles className="size-[18px]" />, label: "À prévoir", value: "Compte Claude Pro · ~23 CAD/mois", sub: "Annulable à tout moment après la formation" },
   ];
 
   return (
@@ -807,6 +809,9 @@ function Agenda() {
                   <div>
                     <div className="logistics-item-label">{it.label}</div>
                     <div className="logistics-item-value">{it.value}</div>
+                    {it.sub && (
+                      <div className="text-[11px] text-muted mt-1 leading-snug">{it.sub}</div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -1210,13 +1215,14 @@ function Guarantee() {
    LOGISTICS + PRICING
    ============================================================ */
 function Logistics() {
-  const details = [
+  const details: { icon: ReactNode; label: string; sub?: string }[] = [
     { icon: <Calendar className="size-5" />, label: "Vendredi 19 juin 2026" },
     { icon: <Clock className="size-5" />, label: "9 h à 16 h" },
     { icon: <MapPin className="size-5" />, label: "Hôtel Escad · Quartier Dix30 · Brossard" },
     { icon: <Coffee className="size-5" />, label: "Café d'accueil + dîner inclus" },
     { icon: <Users className="size-5" />, label: "Limité à 40 participants" },
     { icon: <ShieldCheck className="size-5" />, label: "Garantie 5 h/semaine ou remboursé" },
+    { icon: <Sparkles className="size-5" />, label: "Compte Claude Pro requis · ~23 CAD/mois", sub: "Annulable à tout moment après la formation" },
   ];
 
   const includes = [
@@ -1249,11 +1255,16 @@ function Logistics() {
                 <div className="eyebrow-label mb-5" style={{ color: "var(--kalio-blue)" }}>Logistique</div>
                 <div className="grid sm:grid-cols-2 gap-4 mb-10">
                   {details.map((d, i) => (
-                    <div key={i} className="flex items-center gap-3">
+                    <div key={i} className="flex items-start gap-3">
                       <div className="size-10 rounded-lg flex items-center justify-center shrink-0" style={{ background: "rgba(0,119,255,0.08)", color: "var(--kalio-blue)" }}>
                         {d.icon}
                       </div>
-                      <span className="text-[16px] text-ink-soft leading-snug">{d.label}</span>
+                      <div className="min-w-0">
+                        <span className="text-[16px] text-ink-soft leading-snug block">{d.label}</span>
+                        {d.sub && (
+                          <span className="text-[12px] text-muted leading-snug block mt-0.5">{d.sub}</span>
+                        )}
+                      </div>
                     </div>
                   ))}
                 </div>
@@ -1267,6 +1278,13 @@ function Logistics() {
                     </li>
                   ))}
                 </ul>
+                <p className="mt-5 text-[13.5px] italic text-ink-soft leading-[1.55] border-l-2 border-line-strong pl-4">
+                  À prévoir en plus : compte Claude Pro (~23 CAD/mois,
+                  annulable). On utilise Claude intensivement pendant les 6 h
+                  de formation, le plan gratuit n&apos;est pas suffisant. Un
+                  courriel d&apos;instructions précises sera envoyé après ton
+                  inscription.
+                </p>
               </div>
 
               <div className="text-center lg:text-left lg:border-l lg:border-line lg:pl-12">
