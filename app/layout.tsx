@@ -95,6 +95,24 @@ export default function RootLayout({
             `,
           }}
         />
+        <Script
+          id="meta-pixel-initiate-checkout"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function () {
+                var PAYMENT_URL = 'https://link.fastpaydirect.com/payment-link/6a15a187c3ea3a19f0bd87e9';
+                document.addEventListener('click', function (event) {
+                  var link = event.target.closest && event.target.closest('a');
+                  if (!link || !link.href) return;
+                  if (link.href.indexOf(PAYMENT_URL) !== 0) return;
+                  if (typeof window.fbq !== 'function') return;
+                  window.fbq('track', 'InitiateCheckout', { value: 500, currency: 'CAD' });
+                });
+              })();
+            `,
+          }}
+        />
         <noscript>
           <img
             height="1"
