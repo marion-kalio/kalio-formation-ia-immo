@@ -7,7 +7,7 @@ import {
   BarChart3,
   Clock,
   Calendar,
-  MapPin,
+  Video,
   Users,
   ShieldCheck,
   Bot,
@@ -36,6 +36,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "./components/Reveal";
 
+// TODO : remplacer par le lien de paiement 399 $ de la cohorte en ligne (celui-ci est l'ancien lien 500 $ du présentiel)
 const STRIPE_CHECKOUT_URL = "https://link.fastpaydirect.com/payment-link/6a15a187c3ea3a19f0bd87e9";
 
 export default function Home() {
@@ -85,7 +86,7 @@ function Nav() {
           <a href="#reserver" className="text-ink hover:text-kalio-blue transition">Inscription</a>
         </div>
         <a href={STRIPE_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="nav-cta">
-          Réserver · 500 $
+          Réserver · 399 $
         </a>
       </div>
     </header>
@@ -103,8 +104,8 @@ function Hero() {
         <div>
           <Reveal>
             <div className="eyebrow-pill mb-8">
-              <span className="eyebrow-badge">19 juin</span>
-              Cohorte intime à Brossard · 40 places
+              <span className="eyebrow-badge">10 au 13 août</span>
+              1ère cohorte en ligne · 4 midis en direct
             </div>
           </Reveal>
 
@@ -116,10 +117,11 @@ function Hero() {
 
           <Reveal delay={2}>
             <p className="text-[19px] leading-[1.55] text-muted mb-10 max-w-[540px]">
-              Une journée intensive à Brossard pour automatiser concrètement ton
-              admin (annonces, courriels, baux, factures, TAL, analyses) avec
-              l&apos;IA, appliquée à <strong className="text-ink font-medium">ton</strong>{" "}
-              contexte d&apos;investisseur immobilier au Québec.
+              Quatre midis en ligne, de 12 h à 13 h 30, pour structurer tes
+              opérations et automatiser concrètement ton admin (annonces,
+              courriels, baux, factures, TAL, analyses) avec l&apos;IA,
+              appliquée à <strong className="text-ink font-medium">ton</strong>{" "}
+              contexte d&apos;investisseur immobilier au Québec. Replay inclus.
             </p>
           </Reveal>
 
@@ -147,8 +149,8 @@ function Hero() {
                 <div className="trust-avatar grad-kalio">+</div>
               </div>
               <div className="text-[13.5px] text-muted leading-snug">
-                <strong className="text-ink font-semibold">20 investisseurs</strong> ont déjà
-                fait la 1ère édition.
+                <strong className="text-ink font-semibold">Des investisseurs de partout au Québec</strong>{" "}
+                ont vécu la formation en personne.
                 <br />
                 Note moyenne : <strong className="text-ink font-semibold">4.6 / 5</strong>.
               </div>
@@ -240,16 +242,16 @@ function ClientStrip() {
             <span className="text-sm font-medium">Garantie 5 h/sem ou remboursé</span>
           </div>
           <div className="flex items-center gap-2">
-            <Users className="size-4 text-kalio-blue" />
-            <span className="text-sm font-medium">Limité à 40 participants</span>
-          </div>
-          <div className="flex items-center gap-2">
             <Calendar className="size-4 text-kalio-blue" />
-            <span className="text-sm font-medium">19 juin · 9 h à 16 h</span>
+            <span className="text-sm font-medium">10 au 13 août · 12 h à 13 h 30</span>
           </div>
           <div className="flex items-center gap-2">
-            <MapPin className="size-4 text-kalio-blue" />
-            <span className="text-sm font-medium">Hôtel Escad · Dix30 · Brossard</span>
+            <Monitor className="size-4 text-kalio-blue" />
+            <span className="text-sm font-medium">100 % en ligne, en direct</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <Video className="size-4 text-kalio-blue" />
+            <span className="text-sm font-medium">Replay de chaque session inclus</span>
           </div>
         </div>
       </div>
@@ -416,7 +418,9 @@ function Retournement() {
               lineHeight: 1.15,
             }}
           >
-            Le <span className="accent">19 juin</span>, on règle ça.
+            Du <span className="accent">10 au 13 août</span>, on règle ça.
+            <br />
+            Sur l&apos;heure du midi.
           </span>
         </Reveal>
       </div>
@@ -486,13 +490,13 @@ function Outcomes() {
             <div>
               <div className="eyebrow-label mb-4">Ce que tu repars avec</div>
               <h2 className="h2-display" style={{ maxWidth: "18ch" }}>
-                Dès le lundi matin, <span className="accent">tu opères différemment.</span>
+                Dès le premier midi, <span className="accent">tu opères différemment.</span>
               </h2>
             </div>
             <p className="text-[17px] text-ink-soft leading-[1.6] max-w-[52ch]">
               Pas de la théorie. Pas des notes que tu vas oublier. Des
-              automatisations dans ton business, prêtes à rouler le lundi
-              matin.
+              automatisations dans ton business, qui roulent avant même la fin
+              de la semaine.
             </p>
           </div>
         </Reveal>
@@ -552,8 +556,8 @@ function Agenda() {
   const blocs: Bloc[] = [
     {
       n: "01",
-      tag: "Fondations",
-      time: "9 h · 10 h 30",
+      tag: "Les bases",
+      time: "Lundi 10 août · 12 h à 13 h 30",
       title: "Maîtriser Claude pour ton business immo",
       desc: (
         <>
@@ -574,14 +578,41 @@ function Agenda() {
     },
     {
       n: "02",
-      tag: "Construction live",
-      time: "10 h 45 · 12 h 30",
-      title: "Tu te bâtis tes Skills et tu connectes Claude à tes outils",
+      tag: "Structure",
+      time: "Mardi 11 août · 12 h à 13 h 30",
+      title: "La structure opérationnelle d'un investisseur immo",
       desc: (
         <>
-          Le cœur de la journée. On bâtit ensemble, en direct, les Skills qui
-          vont régler les irritants que tu nous décris au début de la matinée.
-          Et on connecte Claude à tes outils existants,{" "}
+          Le midi que personne d&apos;autre n&apos;offre.{" "}
+          <strong>L&apos;IA n&apos;automatise pas le chaos</strong> : si tes
+          factures sont dans trois boîtes courriel et que tes baux dorment sur
+          ton bureau, l&apos;agent le plus intelligent du monde ne pourra rien
+          ranger. On met de l&apos;ordre dans tes processus, tes documents et
+          tes canaux de communication. C&apos;est la fondation sur laquelle tes
+          agents vont travailler.
+        </>
+      ),
+      bullets: [
+        <>
+          Le <strong>portrait clair de tes opérations</strong> : ce qui rentre,
+          ce qui sort, qui fait quoi
+        </>,
+        <>
+          Une <strong>structure de documents et de données</strong> prête à
+          recevoir l&apos;IA
+        </>,
+      ],
+    },
+    {
+      n: "03",
+      tag: "Construction live",
+      time: "Mercredi 12 août · 12 h à 13 h 30",
+      title: "On bâtit tes premiers agents ensemble",
+      desc: (
+        <>
+          Les mêmes agents que ceux bâtis en présentiel. Chacun dans son
+          Claude, on construit en direct les Skills qui règlent tes irritants,
+          et on connecte Claude à tes outils existants,{" "}
           <strong>QuickBooks, Drive, Calendar, courriels</strong>, pour
           qu&apos;il travaille avec tes vraies données.
         </>
@@ -595,34 +626,24 @@ function Agenda() {
           (QuickBooks, Google Drive, etc.)
         </>,
         <>
-          Recueil de <strong>prompts prêts à coller</strong> pour tes cas
+          Bibliothèque de <strong>prompts prêts à coller</strong> pour tes cas
           concrets quotidiens
         </>,
       ],
     },
     {
-      isBreak: true,
-      tag: "Pause · Dîner inclus",
-      time: "12 h 30 · 13 h 30",
-      title: "Le dîner, les vraies discussions",
+      n: "04",
+      tag: "Agents avancés",
+      time: "Jeudi 13 août · 12 h à 13 h 30",
+      title: "On continue de bâtir, et tu vois où l'IA s'en va",
       desc: (
         <>
-          Repas servi sur place. Le moment où tu parles bail, taux
-          d&apos;inoccupation, refi avec les autres investisseurs présents.
-          Souvent là où les meilleures idées sortent.
-        </>
-      ),
-    },
-    {
-      n: "03",
-      tag: "Démos appliquées",
-      time: "13 h 30 · 15 h",
-      title: "Tu vois ton temps revenir, partout dans ton business",
-      desc: (
-        <>
-          L&apos;après-midi, on attaque les <strong>six grands pans</strong> de
-          ton business d&apos;investisseur. Pour chacun, démos en direct sur
-          écran avec des cas concrets que tu vis chaque semaine.
+          On complète tes agents sur les <strong>six grands pans</strong> de
+          ton business d&apos;investisseur, avec des démos en direct sur des
+          cas concrets que tu vis chaque semaine. Et on termine avec{" "}
+          <strong>Maude</strong> et <strong>Simon</strong>, les agents Kalio en
+          production, pour que tu voies exactement où s&apos;en va la gestion
+          immo locative.
         </>
       ),
       pillars: [
@@ -633,21 +654,6 @@ function Agenda() {
         { icon: <FileText />, name: "Tâches admin et légales", detail: "Baux, hausses TAL, avis, rapports d'inspection" },
         { icon: <UserCheck />, name: "Négociation", detail: "Devis fournisseurs, contre-offres vendeurs, comparatifs" },
       ],
-    },
-    {
-      n: "04",
-      tag: "Avant-garde",
-      time: "15 h · 16 h",
-      title: "Tu vois où l'IA s'en va vraiment",
-      desc: (
-        <>
-          La dernière heure, on monte d&apos;un cran. Démos en direct de{" "}
-          <strong>Maude</strong> (qui qualifie tes prospects de location 24/7)
-          et <strong>Simon</strong> (qui prend les appels et SMS de tes
-          locataires). Et un aperçu de la prochaine étape pour ceux qui veulent
-          bâtir leurs propres agents autonomes après la formation.
-        </>
-      ),
       bullets: [
         <>
           Démo live de <strong>Maude et Simon</strong>, les agents Kalio en
@@ -662,11 +668,10 @@ function Agenda() {
   ];
 
   const logistics: { icon: ReactNode; label: string; value: string; sub?: string }[] = [
-    { icon: <Calendar className="size-[18px]" />, label: "Date", value: "Vendredi 19 juin 2026" },
-    { icon: <Clock className="size-[18px]" />, label: "Heure", value: "9 h à 16 h" },
-    { icon: <MapPin className="size-[18px]" />, label: "Lieu", value: "Hôtel Escad · Dix30 · Brossard" },
-    { icon: <Coffee className="size-[18px]" />, label: "Repas", value: "Café d'accueil + dîner inclus" },
-    { icon: <Users className="size-[18px]" />, label: "Places", value: "Limité à 40 participants" },
+    { icon: <Calendar className="size-[18px]" />, label: "Dates", value: "Lundi 10 au jeudi 13 août 2026" },
+    { icon: <Clock className="size-[18px]" />, label: "Heure", value: "12 h à 13 h 30, chaque midi" },
+    { icon: <Monitor className="size-[18px]" />, label: "Format", value: "100 % en ligne, en direct" },
+    { icon: <Video className="size-[18px]" />, label: "Replay", value: "Inclus pour chaque session" },
     { icon: <ShieldCheck className="size-[18px]" />, label: "Garantie", value: "5 h/sem ou remboursé" },
     { icon: <Sparkles className="size-[18px]" />, label: "À prévoir", value: "Compte Claude Pro · ~23 CAD/mois", sub: "Annulable à tout moment après la formation" },
   ];
@@ -679,15 +684,16 @@ function Agenda() {
             <div>
               <div className="eyebrow-label mb-4">Le programme</div>
               <h2 className="h2-display">
-                Une journée. <span className="accent">Quatre étapes.</span> Tu
-                repars avec tes outils en place.
+                Quatre midis. <span className="accent">Une progression.</span>{" "}
+                Tu finis la semaine avec tes agents en place.
               </h2>
             </div>
             <p className="text-[17px] text-ink-soft leading-[1.6] max-w-[56ch]">
-              Pas une formation théorique. Une journée de pratique appliquée à{" "}
+              Pas une formation théorique. Le même contenu que la formation en
+              personne, appliqué en direct à{" "}
               <strong className="text-ink font-semibold">ton</strong> business
-              d&apos;investisseur immobilier au Québec, avec les outils que tu
-              vas utiliser dès le lundi matin.
+              d&apos;investisseur immobilier au Québec. 1 h 30 par midi, et tu
+              appliques entre les sessions.
             </p>
           </div>
         </Reveal>
@@ -768,17 +774,6 @@ function Agenda() {
                       {b.desc}
                     </p>
 
-                    {b.bullets && (
-                      <div className="card-bullets">
-                        {b.bullets.map((bullet, bi) => (
-                          <div key={bi} className="card-bullet">
-                            <Check />
-                            <span>{bullet}</span>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
                     {b.pillars && (
                       <div className="pillars-grid">
                         {b.pillars.map((p, pi) => (
@@ -788,6 +783,17 @@ function Agenda() {
                               <div className="pillar-name">{p.name}</div>
                               <div className="pillar-detail">{p.detail}</div>
                             </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+
+                    {b.bullets && (
+                      <div className="card-bullets">
+                        {b.bullets.map((bullet, bi) => (
+                          <div key={bi} className="card-bullet">
+                            <Check />
+                            <span>{bullet}</span>
                           </div>
                         ))}
                       </div>
@@ -872,8 +878,8 @@ function Trainer() {
                   Kalio
                 </a>
                 , la première plateforme IA québécoise dédiée aux gestionnaires
-                immobiliers. On gère déjà des milliers de portes au Québec, et on
-                monte vers ~7 000 d&apos;ici la fin juin.
+                immobiliers. On gère environ 7 000 portes au Québec, du
+                Saguenay à Montréal.
               </p>
               <p>
                 HEC Montréal, MREX C13, propriétaire d&apos;un triplex et
@@ -1092,9 +1098,9 @@ function KalioFuture() {
 
         <Reveal>
           <p className="mt-14 text-center text-[16px] text-ink-soft max-w-2xl mx-auto leading-[1.6]">
-            Tu ne bâtiras pas Maude ou Simon en une journée. Mais tu vas
-            comprendre exactement où l&apos;IA va, et démarrer tes premières
-            automatisations dès le lundi matin.
+            Tu ne bâtiras pas Maude ou Simon en quatre midis. Mais tu vas
+            comprendre exactement où l&apos;IA va, et tes premières
+            automatisations vont déjà rouler avant la fin de la semaine.
           </p>
         </Reveal>
       </div>
@@ -1111,6 +1117,8 @@ function Testimonials() {
     { name: "Sophie Lafrenière", quote: "Une journée super bien montée. Du matin au soir, ça tient debout." },
     { name: "Marie-Claude Hamel", quote: "J'aurais voulu que la journée continue et qu'on aille encore plus loin." },
     { name: "Jean-François Bélanger", quote: "Ça m'a donné une vue globale claire sur où on en est avec l'IA, et ce que je peux faire dès maintenant." },
+    // PLACEHOLDER : nouveaux témoignages de la formation en personne (édition du 19 juin), à fournir par Marion
+    // { name: "", quote: "" },
   ];
   const stats = [
     { v: "4.6", l: "Note globale / 5" },
@@ -1122,9 +1130,9 @@ function Testimonials() {
       <div className="wrap">
         <Reveal>
           <div className="text-center mb-12 max-w-3xl mx-auto">
-            <div className="eyebrow-label mb-4">1ère édition · avril 2026</div>
+            <div className="eyebrow-label mb-4">Les éditions en personne · 2026</div>
             <h2 className="h2-display">
-              <span className="accent">20 investisseurs</span> du Québec ont déjà vécu la journée.
+              <span className="accent">Des investisseurs</span> de partout au Québec ont déjà vécu cette formation.
             </h2>
           </div>
         </Reveal>
@@ -1200,8 +1208,9 @@ function Guarantee() {
                 Je te rembourse. Cash.
               </h2>
               <p className="mt-6 text-[18px] sm:text-[20px] opacity-90 max-w-2xl mx-auto leading-relaxed font-light">
-                Aucune justification compliquée. Tu repars avec le repas, la
-                rencontre, et ton argent. Le risque est de mon bord.
+                Aucune justification compliquée. Tu gardes les replays, la
+                bibliothèque de prompts, et ton argent. Le risque est de mon
+                bord.
               </p>
             </div>
           </div>
@@ -1216,22 +1225,21 @@ function Guarantee() {
    ============================================================ */
 function Logistics() {
   const details: { icon: ReactNode; label: string; sub?: string }[] = [
-    { icon: <Calendar className="size-5" />, label: "Vendredi 19 juin 2026" },
-    { icon: <Clock className="size-5" />, label: "9 h à 16 h" },
-    { icon: <MapPin className="size-5" />, label: "Hôtel Escad · Quartier Dix30 · Brossard" },
-    { icon: <Coffee className="size-5" />, label: "Café d'accueil + dîner inclus" },
-    { icon: <Users className="size-5" />, label: "Limité à 40 participants" },
+    { icon: <Calendar className="size-5" />, label: "Lundi 10 au jeudi 13 août 2026" },
+    { icon: <Clock className="size-5" />, label: "12 h à 13 h 30 · 4 séances de 1 h 30" },
+    { icon: <Monitor className="size-5" />, label: "100 % en ligne, en direct" },
+    { icon: <Video className="size-5" />, label: "Replay de chaque session inclus" },
     { icon: <ShieldCheck className="size-5" />, label: "Garantie 5 h/semaine ou remboursé" },
     { icon: <Sparkles className="size-5" />, label: "Compte Claude Pro requis · ~23 CAD/mois", sub: "Annulable à tout moment après la formation" },
   ];
 
   const includes = [
-    "6 heures de formation en personne, en petit groupe",
-    "12 cas concrets prêts à utiliser le lundi matin",
-    "Configuration Claude personnalisée pour ton contexte",
-    "Skills et projets adaptés à l'immobilier locatif québécois",
-    "Démos live des agents Kalio sur de vrais dossiers",
-    "Repas et collations inclus",
+    "6 heures de formation en direct, réparties sur 4 midis",
+    "Le même contenu et les mêmes agents que la formation en personne",
+    "Replay de chaque session, à revoir quand tu veux",
+    "Bibliothèque de skills et de prompts prêts à utiliser",
+    "Création de tes agents IA, en direct avec le groupe",
+    "Structure opérationnelle claire pour tes immeubles",
   ];
 
   return (
@@ -1280,20 +1288,27 @@ function Logistics() {
                 </ul>
                 <p className="mt-5 text-[13.5px] italic text-ink-soft leading-[1.55] border-l-2 border-line-strong pl-4">
                   À prévoir en plus : compte Claude Pro (~23 CAD/mois,
-                  annulable). On utilise Claude intensivement pendant les 6 h
-                  de formation, le plan gratuit n&apos;est pas suffisant. Un
-                  courriel d&apos;instructions précises sera envoyé après ton
+                  annulable). On utilise Claude intensivement pendant les 4
+                  midis, le plan gratuit n&apos;est pas suffisant. Un courriel
+                  d&apos;instructions précises sera envoyé après ton
                   inscription.
                 </p>
               </div>
 
               <div className="text-center lg:text-left lg:border-l lg:border-line lg:pl-12">
                 <div className="eyebrow-label mb-5" style={{ color: "var(--kalio-blue)" }}>Investissement</div>
+                <div className="flex items-baseline gap-3 justify-center lg:justify-start mb-1">
+                  <span className="eyebrow-badge">Prix de lancement</span>
+                  <span className="text-muted line-through" style={{ fontFamily: "var(--font-display)", fontSize: "clamp(24px, 3vw, 34px)", fontWeight: 600, letterSpacing: "-0.03em" }}>
+                    499 $
+                  </span>
+                </div>
                 <div className="text-gradient-signature mb-3" style={{ fontFamily: "var(--font-display)", fontSize: "clamp(64px, 8vw, 110px)", fontWeight: 700, letterSpacing: "-0.05em", lineHeight: 1 }}>
-                  500 $
+                  399 $
                 </div>
                 <p className="text-[14px] text-muted mb-8">
-                  par participant · taxes en sus · paiement sécurisé
+                  1ère cohorte en ligne seulement · taxes en sus · paiement
+                  sécurisé
                 </p>
 
                 <a href={STRIPE_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full">
@@ -1321,12 +1336,13 @@ function Logistics() {
    ============================================================ */
 function FAQ() {
   const faqs = [
-    { q: "J'ai pas le temps de bloquer une journée. C'est vraiment utile ?", a: "1 journée pour récupérer 10 h/semaine ensuite = ROI ~50× en un mois. Et tu repars avec des automatisations en place, pas juste des notes que tu vas oublier mardi prochain." },
-    { q: "Je suis pas tech. Est-ce que je vais comprendre ?", a: "Oui. La formation est conçue pour les non-tech. 80 % des participants de la 1ère édition n'avaient jamais ouvert Claude. Si tu sais texter à un humain, tu sais texter à l'IA." },
-    { q: "Y a-t-il un replay si je ne peux pas être présent le 19 juin ?", a: "Non. La formation est exclusivement en présentiel, le 19 juin à Brossard. La pratique en direct et l'interaction avec les autres investisseurs sont une grosse partie de la valeur." },
+    { q: "1 h 30 par midi, c'est vraiment assez ?", a: "Au total, tu reçois les mêmes 6 heures que la formation en personne. La différence : en 4 sessions courtes, tu as le temps d'appliquer entre les midis et d'arriver le lendemain avec tes vraies questions. C'est le format qui colle le mieux à ce que les participants des éditions en personne nous ont demandé." },
+    { q: "Je peux pas être là un des midis. Je manque quoi ?", a: "Rien. Le replay de chaque session est inclus. Tu rattrapes le soir même, à ton rythme, et tu arrives prêt le midi suivant." },
+    { q: "Je suis pas tech. Est-ce que je vais comprendre ?", a: "Oui. La formation est conçue pour les non-tech. 80 % des participants des éditions en personne n'avaient jamais ouvert Claude. Si tu sais texter à un humain, tu sais texter à l'IA." },
+    { q: "Pourquoi un midi complet sur la structure de mes opérations ?", a: "Parce que l'IA n'automatise pas le chaos. Si tes factures sont éparpillées et que tes processus vivent dans ta tête, l'agent le plus intelligent du monde ne pourra rien ranger. Un midi pour structurer, le reste pour automatiser : c'est ce qui fait que ça tient encore six mois plus tard." },
     { q: "Mes données de locataires et financières, c'est-tu sécuritaire ?", a: "On couvre ça explicitement dans la formation : exactement quoi mettre et quoi NE PAS mettre dans l'IA, et quelles plateformes respectent ta vie privée. Tu repars en sachant exactement comment opérer de manière responsable." },
-    { q: "Comment fonctionne la garantie de remboursement ?", a: "Si à la fin de la journée tu n'as pas identifié au moins 5 h/semaine à récupérer dans ta gestion, tu me dis et je te rembourse. Sans débat. Le risque est de mon bord." },
-    { q: "Le dîner est-il inclus dans le 500 $ ?", a: "Oui. Café d'accueil le matin et dîner complet à midi sont inclus dans le prix. Tu ne sors pas de l'hôtel de la journée." },
+    { q: "C'est quoi la différence avec la formation en personne ?", a: "Le même contenu, les mêmes agents qu'on bâtit ensemble, la même formatrice. En ligne, tu sauves le déplacement, tu as le replay de chaque session, et tu paies 399 $ au lieu de 499 $ parce que c'est la première cohorte en ligne." },
+    { q: "Comment fonctionne la garantie de remboursement ?", a: "Si à la fin des 4 midis tu n'as pas identifié au moins 5 h/semaine à récupérer dans ta gestion, tu me dis et je te rembourse. Sans débat. Le risque est de mon bord." },
   ];
 
   return (
@@ -1374,26 +1390,27 @@ function FinalCTA() {
         </Reveal>
         <Reveal delay={1}>
           <h2 className="h1-display mx-auto" style={{ maxWidth: "18ch" }}>
-            Le <span className="accent">19 juin</span> à Brossard.
+            Du <span className="accent">10 au 13 août</span>, en ligne.
             <br />
-            40 places. C&apos;est tout.
+            Sur l&apos;heure du midi.
           </h2>
         </Reveal>
         <Reveal delay={2}>
           <p className="mt-8 text-[18px] sm:text-[19px] text-ink-soft leading-[1.6] max-w-[52ch] mx-auto">
-            Si tu n&apos;identifies pas 5 h/semaine à récupérer après la
-            journée, je te rembourse. Le risque est zéro de ton bord.
+            399 $ au lieu de 499 $ pour la première cohorte en ligne. Et si tu
+            n&apos;identifies pas 5 h/semaine à récupérer après les 4 midis, je
+            te rembourse. Le risque est zéro de ton bord.
           </p>
         </Reveal>
         <Reveal delay={3}>
           <div className="mt-10 flex flex-col items-center gap-3">
             <a href={STRIPE_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
               <span className="inline-flex items-center gap-2">
-                Réserve ta place · 500 $
+                Réserve ta place · 399 $
                 <ArrowRight className="size-[14px]" strokeWidth={2.5} />
               </span>
             </a>
-            <p className="text-[12.5px] text-muted mt-2">On se voit là.</p>
+            <p className="text-[12.5px] text-muted mt-2">On se voit à l&apos;écran.</p>
           </div>
         </Reveal>
       </div>
