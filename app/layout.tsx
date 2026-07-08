@@ -101,7 +101,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: `
               (function () {
-                var PAYMENT_URL = 'https://link.fastpaydirect.com/payment-link/6a15a187c3ea3a19f0bd87e9';
+                var PAYMENT_URL = 'https://link.fastpaydirect.com/payment-link/6a4dc0f6c981f3feae6e7ff5';
                 document.addEventListener('click', function (event) {
                   var link = event.target.closest && event.target.closest('a');
                   if (!link || !link.href) return;

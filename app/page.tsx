@@ -36,8 +36,7 @@ import {
 } from "lucide-react";
 import { Reveal } from "./components/Reveal";
 
-// TODO : remplacer par le lien de paiement 399 $ de la cohorte en ligne (celui-ci est l'ancien lien 500 $ du présentiel)
-const STRIPE_CHECKOUT_URL = "https://link.fastpaydirect.com/payment-link/6a15a187c3ea3a19f0bd87e9";
+const STRIPE_CHECKOUT_URL = "https://link.fastpaydirect.com/payment-link/6a4dc0f6c981f3feae6e7ff5";
 
 export default function Home() {
   return (
