@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Script from "next/script";
 import { Calendar, Mail, Monitor, Check, ArrowRight } from "lucide-react";
 
 export const metadata: Metadata = {
