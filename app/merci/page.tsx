@@ -13,30 +13,8 @@ export const metadata: Metadata = {
 export default function Merci() {
   return (
     <>
-      {/* Achat confirmé : événement Purchase envoyé une seule fois par navigateur.
-          Retiré quand la Conversions API (phase 2) deviendra la source de vérité. */}
-      <Script
-        id="meta-pixel-purchase"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function () {
-              var KEY = 'kalio_formation_purchase_tracked';
-              try { if (window.localStorage.getItem(KEY)) return; } catch (e) {}
-              var tries = 0;
-              (function fire() {
-                if (typeof window.fbq === 'function') {
-                  window.fbq('track', 'Purchase', { value: 399, currency: 'CAD' });
-                  try { window.localStorage.setItem(KEY, '1'); } catch (e) {}
-                } else if (tries++ < 20) {
-                  setTimeout(fire, 250);
-                }
-              })();
-            })();
-          `,
-        }}
-      />
-
+      {/* Le Purchase est envoyé côté serveur (n8n → Conversions API), seule source
+          de vérité pour éviter le double comptage. Cette page ne trace que le PageView. */}
       <header className="nav">
         <div className="nav-inner">
           <a href="/" aria-label="Kalio · Formation IA Immobilier" className="inline-flex items-center">
