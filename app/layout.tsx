@@ -96,18 +96,54 @@ export default function RootLayout({
           }}
         />
         <Script
-          id="meta-pixel-initiate-checkout"
+          id="checkout-attribution"
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               (function () {
                 var PAYMENT_URL = 'https://link.fastpaydirect.com/payment-link/6a4dc0f6c981f3feae6e7ff5';
+                var KEYS = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid'];
+                var STORE = 'kalio_attribution';
+
+                // La pub d'origine se perd entre l'atterrissage et la page de paiement (domaine
+                // GHL distinct). On la retient au premier chargement et on la rattache au lien
+                // de paiement au moment du clic, pour que l'acheteur arrive attribué.
+                function capture() {
+                  var params = new URLSearchParams(window.location.search);
+                  var found = {};
+                  var any = false;
+                  KEYS.forEach(function (k) {
+                    var v = params.get(k);
+                    if (v) { found[k] = v; any = true; }
+                  });
+                  if (any) {
+                    try { sessionStorage.setItem(STORE, JSON.stringify(found)); } catch (e) {}
+                    return found;
+                  }
+                  try { return JSON.parse(sessionStorage.getItem(STORE) || '{}'); } catch (e) { return {}; }
+                }
+
+                var attribution = capture();
+
                 document.addEventListener('click', function (event) {
                   var link = event.target.closest && event.target.closest('a');
                   if (!link || !link.href) return;
                   if (link.href.indexOf(PAYMENT_URL) !== 0) return;
-                  if (typeof window.fbq !== 'function') return;
-                  window.fbq('track', 'InitiateCheckout', { value: 399, currency: 'CAD' });
+
+                  var keys = Object.keys(attribution);
+                  if (keys.length) {
+                    try {
+                      var url = new URL(link.href);
+                      keys.forEach(function (k) {
+                        if (!url.searchParams.has(k)) url.searchParams.set(k, attribution[k]);
+                      });
+                      link.href = url.toString();
+                    } catch (e) {}
+                  }
+
+                  if (typeof window.fbq === 'function') {
+                    window.fbq('track', 'InitiateCheckout', { value: 399, currency: 'CAD' });
+                  }
                 });
               })();
             `,
