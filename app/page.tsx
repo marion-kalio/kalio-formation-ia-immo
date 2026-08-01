@@ -138,18 +138,20 @@ function Hero() {
           </Reveal>
 
           <Reveal delay={1}>
-            <h1 className="h1-display mb-7" style={{ maxWidth: "14ch" }}>
-              Récupère <span className="accent">10 heures</span> par semaine sur tes immeubles.
+            <h1 className="h1-display mb-7" style={{ maxWidth: "15ch" }}>
+              Tes immeubles cachent de l&apos;argent.{" "}
+              <span className="accent">Ton équipe d&apos;employés IA</span> va le chercher.
             </h1>
           </Reveal>
 
           <Reveal delay={2}>
             <p className="text-[19px] leading-[1.55] text-muted mb-10 max-w-[540px]">
-              Quatre midis en ligne, de 12 h à 13 h 30, pour structurer tes
-              opérations et automatiser concrètement ton admin (annonces,
-              courriels, baux, factures, TAL, analyses) avec l&apos;IA,
-              appliquée à <strong className="text-ink font-medium">ton</strong>{" "}
-              contexte d&apos;investisseur immobilier au Québec. Replay inclus.
+              Quatre midis en ligne, de 12 h à 13 h 30, pour bâtir tes 10
+              agents IA : ils repèrent les loyers sous le marché, les logements
+              que ton zonage permet d&apos;ajouter et les dépenses refacturables,
+              pis ils te redonnent tes soirées (courriels, factures, baux, TAL).
+              Appliqué à <strong className="text-ink font-medium">ton</strong>{" "}
+              parc, au Québec. Replay inclus.
             </p>
           </Reveal>
 
