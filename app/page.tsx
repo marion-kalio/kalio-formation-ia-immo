@@ -38,6 +38,11 @@ import { Reveal } from "./components/Reveal";
 
 const STRIPE_CHECKOUT_URL = "https://link.fastpaydirect.com/payment-link/6a4dc0f6c981f3feae6e7ff5";
 
+// Urgence : le 399 $ expire le vendredi 8 août 23 h 59 (ensuite 499 $, changer
+// aussi le lien de paiement GHL à ce moment-là), cohorte affichée à 40 places.
+const PRICE_DEADLINE = "vendredi 8 août, 23 h 59";
+const PLACES = "40 places";
+
 export default function Home() {
   return (
     <>
@@ -49,16 +54,40 @@ export default function Home() {
         <Retournement />
         <Outcomes />
         <Agenda />
+        <MidCta text="Le programme te parle ? Les places partent par cohorte de midi." />
         <Trainer />
-        <KalioFuture />
         <Testimonials />
+        <MidCta text="Rejoins-les. Le prix de lancement se termine bientôt." />
         <Guarantee />
         <Logistics />
         <FAQ />
+        <KalioFuture />
         <FinalCTA />
       </main>
       <Footer />
     </>
+  );
+}
+
+/* ============================================================
+   MID CTA · rappel d'achat entre les sections longues
+   ============================================================ */
+function MidCta({ text }: { text: string }) {
+  return (
+    <section className="border-y border-line" style={{ background: "var(--paper-warm)" }}>
+      <div className="wrap py-8 flex flex-col sm:flex-row items-center justify-center gap-5 text-center sm:text-left">
+        <p className="text-[15.5px] text-ink-soft leading-snug max-w-[48ch]">
+          <strong className="text-ink font-semibold">{text}</strong>{" "}
+          399 $ jusqu&apos;au {PRICE_DEADLINE}, ensuite 499 $ · {PLACES}.
+        </p>
+        <a href={STRIPE_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="btn-primary shrink-0">
+          <span className="inline-flex items-center gap-2">
+            Réserve ta place · 399 $
+            <ArrowRight className="size-[14px]" strokeWidth={2.5} />
+          </span>
+        </a>
+      </div>
+    </section>
   );
 }
 
@@ -104,7 +133,7 @@ function Hero() {
           <Reveal>
             <div className="eyebrow-pill mb-8">
               <span className="eyebrow-badge">10 au 13 août</span>
-              1ère cohorte en ligne · 4 midis en direct
+              1ère cohorte en ligne · {PLACES} · 399 $ jusqu&apos;au 8 août
             </div>
           </Reveal>
 
@@ -137,6 +166,10 @@ function Hero() {
                 <ArrowRight className="size-[14px]" strokeWidth={2} />
               </a>
             </div>
+            <p className="text-[13px] text-muted -mt-8 mb-12">
+              399 $ jusqu&apos;au {PRICE_DEADLINE}, ensuite 499 $ · Remboursement
+              complet garanti après les 4 midis.
+            </p>
           </Reveal>
 
           <Reveal delay={4}>
@@ -904,6 +937,19 @@ function Trainer() {
               ))}
             </div>
           </Reveal>
+
+          <Reveal delay={3}>
+            <figure className="mt-8 border-l-2 border-line-strong pl-5 max-w-[58ch]">
+              <blockquote className="text-[16.5px] text-ink leading-[1.6] italic">
+                « On garde la même équipe, mais on peut gérer le double, le
+                triple de portes. Kalio est clairement un pionnier, et on a une
+                bonne pilote en Marion. »
+              </blockquote>
+              <figcaption className="mt-2 text-[12.5px] tracking-[0.1em] uppercase font-semibold text-ink-soft">
+                Philippe Dupuis · VP, Organisation Dupuis · ~800 portes
+              </figcaption>
+            </figure>
+          </Reveal>
         </div>
       </div>
     </section>
@@ -1202,14 +1248,16 @@ function Guarantee() {
                 Garantie remboursement
               </div>
               <h2 className="h2-display text-white" style={{ lineHeight: 1.08 }}>
-                Tu n&apos;identifies pas 5 heures par semaine à récupérer ?
+                Fais les 4 midis. Si tu n&apos;identifies même pas 5 heures par
+                semaine à récupérer,
                 <br />
-                Je te rembourse. Cash.
+                je te rembourse. Cash.
               </h2>
               <p className="mt-6 text-[18px] sm:text-[20px] opacity-90 max-w-2xl mx-auto leading-relaxed font-light">
-                Aucune justification compliquée. Tu gardes les replays, la
-                bibliothèque de prompts, et ton argent. Le risque est de mon
-                bord.
+                L&apos;objectif qu&apos;on vise ensemble, c&apos;est 10 heures.
+                La garantie couvre même la moitié. Aucune justification
+                compliquée : tu gardes les replays, la bibliothèque de prompts,
+                et ton argent. Le risque est de mon bord.
               </p>
             </div>
           </div>
@@ -1233,12 +1281,12 @@ function Logistics() {
   ];
 
   const includes = [
-    "6 heures de formation en direct, réparties sur 4 midis",
-    "Le même contenu et les mêmes agents que la formation en personne",
+    "10 Projets Claude prêts à coller : ton équipe d'employés IA au complet (prospecteur, comptable, adjointe, gestionnaire...)",
+    "Environ 90 prompts de niveau investisseur, testés sur un vrai cas de 6 logements",
+    "12 Skills prêtes à installer : baux, hausses TAL, annonces, factures, analyse de deals",
+    "Le calculateur de rentabilité Excel avec projection 5 ans",
+    "6 heures en direct sur 4 midis, appliquées à TES immeubles, avec le groupe",
     "Replay de chaque session, à revoir quand tu veux",
-    "Bibliothèque de skills et de prompts prêts à utiliser",
-    "Création de tes agents IA, en direct avec le groupe",
-    "Structure opérationnelle claire pour tes immeubles",
   ];
 
   return (
@@ -1305,9 +1353,11 @@ function Logistics() {
                 <div className="text-gradient-signature mb-3" style={{ fontFamily: "var(--font-display)", fontSize: "clamp(64px, 8vw, 110px)", fontWeight: 700, letterSpacing: "-0.05em", lineHeight: 1 }}>
                   399 $
                 </div>
-                <p className="text-[14px] text-muted mb-8">
-                  1ère cohorte en ligne seulement · taxes en sus · paiement
-                  sécurisé
+                <p className="text-[14px] text-muted mb-2">
+                  Jusqu&apos;au {PRICE_DEADLINE} · ensuite 499 $
+                </p>
+                <p className="text-[13px] text-muted mb-8">
+                  Cohorte limitée à {PLACES} · taxes en sus · paiement sécurisé
                 </p>
 
                 <a href={STRIPE_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full">
@@ -1396,9 +1446,9 @@ function FinalCTA() {
         </Reveal>
         <Reveal delay={2}>
           <p className="mt-8 text-[18px] sm:text-[19px] text-ink-soft leading-[1.6] max-w-[52ch] mx-auto">
-            399 $ au lieu de 499 $ pour la première cohorte en ligne. Et si tu
-            n&apos;identifies pas 5 h/semaine à récupérer après les 4 midis, je
-            te rembourse. Le risque est zéro de ton bord.
+            399 $ jusqu&apos;au {PRICE_DEADLINE}, ensuite 499 $. Cohorte limitée
+            à {PLACES}. Et si tu n&apos;identifies pas 5 h/semaine à récupérer
+            après les 4 midis, je te rembourse. Le risque est zéro de ton bord.
           </p>
         </Reveal>
         <Reveal delay={3}>
