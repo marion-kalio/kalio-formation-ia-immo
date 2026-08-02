@@ -44,6 +44,37 @@ const STRIPE_CHECKOUT_URL = "https://link.fastpaydirect.com/payment-link/6a4dc0f
 const PRICE_DEADLINE = "vendredi 8 août, 23 h 59";
 const PLACES = "40 places";
 
+// VSL du hero : mettre l'URL du mp4 monté (ex. "/video/vsl.mp4") dès le tournage.
+// Tant que null, un cadre réservé s'affiche — À REMPLACER OU RETIRER avant la prod.
+const VSL_URL: string | null = null;
+
+function HeroVideo({ compact = false }: { compact?: boolean }) {
+  return (
+    <div className={compact ? "mb-8" : ""} style={{ width: "100%", maxWidth: compact ? 540 : 380 }}>
+      <div
+        className="relative rounded-[20px] overflow-hidden border border-line-strong"
+        style={{ aspectRatio: "16 / 9", background: "var(--ink)", boxShadow: "0 20px 60px rgba(10,15,30,0.18)" }}
+      >
+        {VSL_URL ? (
+          <video src={VSL_URL} controls playsInline preload="metadata" className="absolute inset-0 w-full h-full object-cover" />
+        ) : (
+          <div className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-white" style={{ background: "radial-gradient(ellipse at 70% 20%, rgba(0,229,204,0.25) 0%, transparent 55%), radial-gradient(ellipse at 20% 90%, rgba(0,119,255,0.25) 0%, transparent 55%), var(--ink)" }}>
+            <div className="size-14 rounded-full flex items-center justify-center" style={{ background: "var(--gradient-signature)", boxShadow: "0 8px 24px rgba(0,119,255,0.4)" }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="white" aria-hidden><path d="M8 5v14l11-7z" /></svg>
+            </div>
+            <div className="text-[13px] font-medium" style={{ color: "rgba(255,255,255,0.85)" }}>
+              Vidéo de Marion · 2 min 30
+            </div>
+          </div>
+        )}
+      </div>
+      <p className="text-[12.5px] text-muted mt-2 text-center">
+        2 min 30 pour voir ce que tes immeubles cachent.
+      </p>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
     <>
@@ -158,6 +189,13 @@ function Hero() {
             </p>
           </Reveal>
 
+          {/* VSL mobile : seule place visuelle du hero sur téléphone */}
+          <Reveal delay={2}>
+            <div className="lg:hidden">
+              <HeroVideo compact />
+            </div>
+          </Reveal>
+
           <Reveal delay={3}>
             <div className="flex flex-wrap gap-3 items-center mb-12">
               <a href={STRIPE_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
@@ -196,10 +234,15 @@ function Hero() {
           </Reveal>
         </div>
 
-        {/* RIGHT: cartes empilées sans superposition (chat Claude + ticket Simon) */}
+        {/* RIGHT: VSL en haut + carte chat Claude (desktop) */}
         <Reveal delay={3} className="relative hidden lg:flex flex-col gap-6 items-stretch">
           <div className="blob blob-teal" style={{ width: 380, height: 380, top: -60, right: -40 }} />
           <div className="blob blob-blue" style={{ width: 380, height: 380, bottom: -80, left: -60, opacity: 0.3 }} />
+
+          {/* VSL — la vidéo de Marion */}
+          <div className="relative" style={{ zIndex: 2 }}>
+            <HeroVideo />
+          </div>
 
           {/* Claude chat card */}
           <div
@@ -232,32 +275,6 @@ function Hero() {
             </div>
           </div>
 
-          {/* Simon email triage card (style phone-card dark) */}
-          <div
-            className="phone-card phone-card-float-subtle relative ml-auto"
-            style={{ width: 320, zIndex: 2 }}
-          >
-            <div className="flex items-center gap-3 mb-4 relative">
-              <div className="phone-icon">
-                <Mail className="size-5" />
-              </div>
-              <div>
-                <div className="text-[14px] font-semibold">Tri courriels · auto</div>
-                <div className="text-[11.5px] flex items-center gap-1.5" style={{ color: "rgba(255,255,255,0.55)" }}>
-                  <span className="status-dot teal" />
-                  3 traités · 1 escaladé
-                </div>
-              </div>
-            </div>
-            <div className="phone-label">Dernier message classé</div>
-            <div className="phone-transcript mb-4">
-              « Bonjour, je voulais vous signaler une <em>fuite sous l&apos;évier</em> de la cuisine. C&apos;est pas urgent (j&apos;ai mis un bol) mais ça serait bien que quelqu&apos;un passe cette semaine. »
-            </div>
-            <div className="flex gap-2">
-              <div className="phone-action">Maintenance · Non-urgent</div>
-              <div className="phone-action primary">Plombier alerté</div>
-            </div>
-          </div>
         </Reveal>
       </div>
     </section>
@@ -433,8 +450,8 @@ function TonEquipe() {
         <Reveal>
           <p className="mt-10 text-center text-[16px] text-ink-soft max-w-3xl mx-auto leading-[1.6]">
             Plus <strong className="text-ink">~90 prompts de niveau investisseur</strong>,{" "}
-            <strong className="text-ink">12 Skills</strong> (baux, TAL, annonces,
-            factures, deals), le <strong className="text-ink">calculateur Excel</strong>{" "}
+            <strong className="text-ink">12 Skills</strong> (hausses TAL, avis,
+            annonces, factures, deals), le <strong className="text-ink">calculateur Excel</strong>{" "}
             de rentabilité avec projection 5 ans, et le{" "}
             <strong className="text-ink">cas complet d&apos;un 6 logements à Sherbrooke</strong>{" "}
             qu&apos;on décortique ensemble, du deal à la gestion.
@@ -496,7 +513,7 @@ function Retournement() {
                 margin: "12px 0",
               }}
             >
-              Pis tu remplis encore tes baux à la mitaine.
+              Pis tes hausses de loyer se calculent encore sur le coin de la table.
             </p>
             <p
               style={{
@@ -1250,7 +1267,7 @@ function Logistics() {
   const includes = [
     "10 Projets Claude prêts à coller : ton équipe d'employés IA au complet (prospecteur, comptable, adjointe, gestionnaire...)",
     "Environ 90 prompts de niveau investisseur, testés sur un vrai cas de 6 logements",
-    "12 Skills prêtes à installer : baux, hausses TAL, annonces, factures, analyse de deals",
+    "12 Skills prêtes à installer : hausses TAL, avis, annonces, factures, analyse de deals",
     "Le calculateur de rentabilité Excel avec projection 5 ans",
     "6 heures en direct sur 4 midis, appliquées à TES immeubles, avec le groupe",
     "Replay de chaque session, à revoir quand tu veux",
@@ -1364,7 +1381,7 @@ function FAQ() {
     { q: "Mes données de locataires et financières, c'est-tu sécuritaire ?", a: "On couvre ça explicitement dans la formation : exactement quoi mettre et quoi NE PAS mettre dans l'IA, et quelles plateformes respectent ta vie privée. Tu repars en sachant exactement comment opérer de manière responsable." },
     { q: "C'est quoi la différence avec la formation en personne ?", a: "Le même contenu, les mêmes agents qu'on bâtit ensemble, la même formatrice. En ligne, tu sauves le déplacement, tu as le replay de chaque session, et tu paies 399 $ au lieu de 499 $ parce que c'est la première cohorte en ligne." },
     { q: "Comment fonctionne la garantie de remboursement ?", a: "Si à la fin des 4 midis tu n'as pas identifié au moins 5 h/semaine à récupérer dans ta gestion, tu me dis et je te rembourse. Sans débat. Le risque est de mon bord." },
-    { q: "J'utilise déjà ChatGPT. Pourquoi j'aurais besoin d'une formation ?", a: "Parce que poser des questions à une IA pis faire rouler une équipe d'agents configurés sur TON parc, c'est deux mondes. Tu repars avec 10 Projets Claude déjà bâtis pour l'immobilier québécois, 12 Skills (baux, TAL, annonces, factures) et ~90 prompts de niveau investisseur. Des années d'essais-erreurs que tu sautes en 4 midis. Et on te montre comment migrer ta mémoire ChatGPT vers Claude en une heure." },
+    { q: "J'utilise déjà ChatGPT. Pourquoi j'aurais besoin d'une formation ?", a: "Parce que poser des questions à une IA pis faire rouler une équipe d'agents configurés sur TON parc, c'est deux mondes. Tu repars avec 10 Projets Claude déjà bâtis pour l'immobilier québécois, 12 Skills (hausses TAL, avis, annonces, factures) et ~90 prompts de niveau investisseur. Des années d'essais-erreurs que tu sautes en 4 midis. Et on te montre comment migrer ta mémoire ChatGPT vers Claude en une heure." },
     { q: "J'ai 6 portes. Ou j'en ai 400. C'est pour moi ?", a: "Les deux. À 6 portes, tu récupères tes soirées et tu analyses tes prochains deals comme un pro. À 400, chaque agent se multiplie par ton volume : le tri de factures ou le calcul des hausses TAL sur tout ton parc, c'est là que les heures et les dollars deviennent gros. Le contenu s'applique à ton parc à toi, pendant les sessions." },
     { q: "Pourquoi je bâtirais mes agents moi-même au lieu d'engager Kalio ?", a: "Les deux se complètent. Les agents Kalio comme Maude et Simon prennent en charge des opérations complètes, 24/7. La formation, elle, te rend autonome sur tout le reste : analyses de deals, hausses TAL, factures, courriels. Commence par la formation ; si un jour tu veux déléguer plus loin, tu sauras exactement quoi demander." },
   ];
