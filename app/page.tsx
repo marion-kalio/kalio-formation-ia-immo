@@ -934,11 +934,11 @@ function BioMarion() {
           <Reveal delay={1}>
             <p className="text-[16px] text-ink-soft leading-[1.65] max-w-[60ch]">
               Marion est fondatrice de Kalio, dont les agents IA servent environ 7 000 portes au
-              Québec. Formée à HEC Montréal, membre de la cohorte C13 du MREX. Et propriétaire
-              d&apos;un triplex : les appels de fin de semaine, les relevés 31 « jamais reçus », les
-              niaiseries du dimanche, elle les vit aussi. C&apos;est exactement pour ça que la
-              formation parle ton langage : celui d&apos;une investisseuse qui bâtit des agents IA,
-              pas celui d&apos;une techno qui a jamais géré un logement.
+              Québec. Formée à HEC Montréal, membre de la cohorte C13 du MREX. Les appels du
+              dimanche pour une corde à linge, les relevés 31 « jamais reçus », les 900 réponses
+              pour un logement : elle les voit passer chaque jour dans les opérations de ses
+              clients. C&apos;est pour ça que la formation parle ton langage : celui du terrain
+              immobilier québécois, pas celui d&apos;une techno qui a jamais géré un logement.
             </p>
           </Reveal>
 
