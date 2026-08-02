@@ -266,11 +266,13 @@ function Hero() {
 /* ============================================================
    2. BANDEAU MICRO-PREUVE · autorise la lecture de la suite
    ============================================================ */
+// Chiffres = dépouillement COMPLET des 21 sondages papier du 19 juin (2 août 2026) :
+// impression générale 9,1/10; recommandation 9,6/10 (12 des 19 répondants donnent 10/10).
 function ProofRow() {
   const items = [
-    { chiffre: "4,6/5", libelle: "" },
-    { chiffre: "11/12", libelle: "recommandent" },
-    { chiffre: "9/12", libelle: "en redemandent" },
+    { chiffre: "9,1/10", libelle: "note globale" },
+    { chiffre: "9,6/10", libelle: "recommandation" },
+    { chiffre: "12/19", libelle: "donnent 10 sur 10" },
   ];
   return (
     <div className="flex items-center justify-center gap-x-4 sm:gap-x-8 flex-nowrap">
@@ -298,13 +300,13 @@ function MicroPreuve() {
       <div className="wrap py-5">
         <div className="flex items-center justify-center gap-x-4 sm:gap-x-8 flex-wrap gap-y-2">
           <div className="text-center">
-            <span className="text-[15px] sm:text-[16px] font-semibold text-ink">4,6/5</span>{" "}
+            <span className="text-[15px] sm:text-[16px] font-semibold text-ink">9,1/10</span>{" "}
             <span className="text-[11.5px] sm:text-[13px] text-muted">cohorte de juin</span>
           </div>
           <span className="hidden sm:block w-px self-stretch" style={{ background: "var(--line-strong)" }} />
           <div className="text-center">
-            <span className="text-[15px] sm:text-[16px] font-semibold text-ink">11/12</span>{" "}
-            <span className="text-[11.5px] sm:text-[13px] text-muted">recommandent</span>
+            <span className="text-[15px] sm:text-[16px] font-semibold text-ink">9,6/10</span>{" "}
+            <span className="text-[11.5px] sm:text-[13px] text-muted">recommandation</span>
           </div>
           <span className="hidden sm:block w-px self-stretch" style={{ background: "var(--line-strong)" }} />
           <div className="text-center">
@@ -973,6 +975,11 @@ function BioMarion() {
    ============================================================ */
 function Temoignages() {
   const cartes = [
+    {
+      // Sondage papier 19 juin (autorisation de témoignage signée p.28, attribution probable — Marion confirme)
+      quote: "Comprendre ce que Claude Cowork peut faire, c'est fou! Je pense pouvoir devenir une nouvelle version de moi-même d'ici 6 mois. Je veux commencer!",
+      nom: "Catherine · investisseuse, cohorte de juin",
+    },
     {
       quote: "Ça m'a donné une vue globale claire sur où on en est avec l'IA, et ce que je peux faire dès maintenant.",
       nom: "Jean-François Bélanger · participant, cohorte de juin",
