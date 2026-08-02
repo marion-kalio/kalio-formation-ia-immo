@@ -158,6 +158,51 @@ export default function RootLayout({
             alt=""
           />
         </noscript>
+        <Script
+          id="jsonld-course"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Course",
+              name: "Formation IA pour investisseurs immobiliers",
+              description:
+                "4 midis en ligne pour bâtir ton équipe d'employés IA : 10 Projets Claude, ~90 prompts, 12 Skills, calculateur de rentabilité. Conçu pour le Québec (TAL, baux, C.c.Q.).",
+              provider: {
+                "@type": "Organization",
+                name: "Kalio",
+                url: "https://kalio.ca",
+              },
+              inLanguage: "fr-CA",
+              offers: {
+                "@type": "Offer",
+                price: "399",
+                priceCurrency: "CAD",
+                priceValidUntil: "2026-08-08",
+                availability: "https://schema.org/LimitedAvailability",
+                url: "https://formation.kalio.ca",
+              },
+              hasCourseInstance: {
+                "@type": "CourseInstance",
+                courseMode: "online",
+                startDate: "2026-08-10",
+                endDate: "2026-08-13",
+                courseSchedule: {
+                  "@type": "Schedule",
+                  startTime: "12:00",
+                  endTime: "13:30",
+                  repeatFrequency: "P1D",
+                },
+                instructor: {
+                  "@type": "Person",
+                  name: "Marion Verschaeve",
+                  url: "https://kalio.ca",
+                },
+              },
+            }),
+          }}
+        />
         <div className="ambient" aria-hidden="true">
           <div className="ambient-warm" />
           <div className="ambient-grid" />
