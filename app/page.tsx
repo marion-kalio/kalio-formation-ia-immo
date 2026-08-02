@@ -43,7 +43,7 @@ const VSL_URL: string | null = null;
 
 // Citations Trottier + Dupuis : passer à true SEULEMENT quand leur OK est reçu
 // (board Monday « Preuve sociale », statut Consentement → Obtenu).
-const CONSENTEMENTS_OBTENUS = false;
+const CONSENTEMENTS_OBTENUS = true; // OK de Marion recu le 2 aout
 
 /* ============================================================
    CTA · le même geste partout : payer
