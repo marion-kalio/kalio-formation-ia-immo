@@ -35,6 +35,7 @@ import {
   Check,
 } from "lucide-react";
 import { Reveal } from "./components/Reveal";
+import { Countdown } from "./components/Countdown";
 
 const STRIPE_CHECKOUT_URL = "https://link.fastpaydirect.com/payment-link/6a4dc0f6c981f3feae6e7ff5";
 
@@ -51,17 +52,19 @@ export default function Home() {
         <Hero />
         <ClientStrip />
         <Pain />
+        <LeCalcul />
         <Retournement />
         <Outcomes />
+        <TonEquipe />
         <Agenda />
-        <MidCta text="Le programme te parle ? Les places partent par cohorte de midi." />
+        <KalioFuture />
+        <MidCta text="La formation commence lundi midi." />
         <Trainer />
         <Testimonials />
-        <MidCta text="Rejoins-les. Le prix de lancement se termine bientôt." />
+        <MidCta text="Rejoins-les. Le prix de lancement finit vendredi soir." />
         <Guarantee />
         <Logistics />
         <FAQ />
-        <KalioFuture />
         <FinalCTA />
       </main>
       <Footer />
@@ -146,12 +149,12 @@ function Hero() {
 
           <Reveal delay={2}>
             <p className="text-[19px] leading-[1.55] text-muted mb-10 max-w-[540px]">
-              Quatre midis en ligne, de 12 h à 13 h 30, pour bâtir tes 10
-              agents IA : ils repèrent les loyers sous le marché, les logements
-              que ton zonage permet d&apos;ajouter et les dépenses refacturables,
-              pis ils te redonnent tes soirées (courriels, factures, avis, hausses TAL).
-              Appliqué à <strong className="text-ink font-medium">ton</strong>{" "}
-              parc, au Québec. Replay inclus.
+              Quatre midis en ligne pour bâtir tes 10 employés IA. Ils trouvent
+              l&apos;argent qui dort dans ton parc : loyers sous le marché,
+              dépenses refacturables, logements que ton zonage permet
+              d&apos;ajouter. Pis ils te redonnent tes soirées. Appliqué à{" "}
+              <strong className="text-ink font-medium">ton</strong> parc, au
+              Québec. Replay inclus.
             </p>
           </Reveal>
 
@@ -159,7 +162,7 @@ function Hero() {
             <div className="flex flex-wrap gap-3 items-center mb-12">
               <a href={STRIPE_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
                 <span className="inline-flex items-center gap-2">
-                  Réserve ta place
+                  Réserve ta place · 399 $
                   <ArrowRight className="size-[14px]" strokeWidth={2.5} />
                 </span>
               </a>
@@ -168,10 +171,11 @@ function Hero() {
                 <ArrowRight className="size-[14px]" strokeWidth={2} />
               </a>
             </div>
-            <p className="text-[13px] text-muted -mt-8 mb-12">
+            <p className="text-[13px] text-muted -mt-8 mb-3">
               399 $ jusqu&apos;au {PRICE_DEADLINE}, ensuite 499 $ · Remboursement
               complet garanti après les 4 midis.
             </p>
+            <div className="mb-12"><Countdown /></div>
           </Reveal>
 
           <Reveal delay={4}>
@@ -208,7 +212,7 @@ function Hero() {
                 <div className="chat-name">Claude · ton analyste immo</div>
                 <div className="chat-status">
                   <span className="status-dot" />
-                  Répond en 8 secondes
+                  En ligne
                 </div>
               </div>
             </div>
@@ -300,7 +304,7 @@ function Pain() {
   const pains = [
     { icon: <Mail className="size-6" />, title: "Courriels à 22 h", body: "Locataires, prospects qui ont mal lu l'annonce, demandes de visites. Ta soirée y passe." },
     { icon: <Receipt className="size-6" />, title: "Factures éparpillées", body: "Boîte courriel, photos sur ton cell, pile sur le comptoir. Tu sais que c'est pas un système." },
-    { icon: <ImageIcon className="size-6" />, title: "Annonces refaites à la main", body: "Même immeuble, même bâtisse. T'écris encore le même texte. Trois fois par année." },
+    { icon: <ImageIcon className="size-6" />, title: "Loyers sous le marché", body: "T'as un feeling que ton 4½ à 780 $ en vaudrait 1 050 $. Mais t'as jamais fait le calcul logement par logement. Ce feeling-là te coûte des dizaines de milliers en valeur d'immeuble." },
     { icon: <BarChart3 className="size-6" />, title: "Analyses dans Excel", body: "Hausses TAL, refinancements, rapports d'inspection. Toujours toi, toujours le soir." },
   ];
   return (
@@ -315,7 +319,8 @@ function Pain() {
             <p className="text-[17px] text-ink-soft leading-[1.6] max-w-[60ch]">
               Pendant que tu fais ça à la main, d&apos;autres investisseurs ont
               déjà délégué 80 % de cette job à l&apos;IA. La différence ne se
-              compte plus en heures. Elle se compte en doors achetées.
+              compte plus juste en heures. Elle se compte en loyers pas
+              optimisés pis en immeubles pas achetés.
             </p>
           </div>
         </Reveal>
@@ -333,6 +338,108 @@ function Pain() {
             </Reveal>
           ))}
         </div>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
+   LE CALCUL · l'équation argent (l'angle qui vend, mesuré en pub)
+   ============================================================ */
+function LeCalcul() {
+  return (
+    <section className="py-20 sm:py-28" style={{ background: "var(--paper-warm)" }}>
+      <div className="wrap max-w-5xl">
+        <Reveal>
+          <div className="relative rounded-[2rem] overflow-hidden" style={{ background: "var(--ink)" }}>
+            <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse at 85% 15%, rgba(0,229,204,0.18) 0%, transparent 55%), radial-gradient(ellipse at 10% 90%, rgba(0,119,255,0.15) 0%, transparent 55%)" }} />
+            <div className="relative p-10 sm:p-14 text-white">
+              <div className="text-[11px] font-semibold tracking-[0.28em] uppercase mb-5" style={{ color: "var(--kalio-teal)" }}>
+                Le calcul que personne fait
+              </div>
+              <h2 className="h2-display text-white mb-6" style={{ maxWidth: "22ch" }}>
+                Un loyer sous le marché, c&apos;est pas juste 270 $ par mois.
+              </h2>
+              <div className="space-y-4 text-[17.5px] leading-[1.65] max-w-[62ch]" style={{ color: "rgba(255,255,255,0.85)" }}>
+                <p>
+                  Ton 4½ loué 780 $ quand le marché est à 1 050 $, c&apos;est{" "}
+                  <strong className="text-white">3 240 $ par année qui dorment</strong>.
+                  Pis c&apos;est pas fini : à un TGA de 5,5 %, chaque 10 000 $ de
+                  revenus nets que tu ajoutes, c&apos;est environ{" "}
+                  <strong style={{ color: "var(--kalio-teal)" }}>181 818 $ de plus sur la valeur de ton immeuble</strong>.
+                  Pas dans dix ans. Au prochain refinancement.
+                </p>
+                <p>
+                  Pendant la formation, ton agent Optimisateur scanne ton parc et
+                  te sort la liste, logement par logement : loyers sous le
+                  marché, dépenses refacturables, espaces que ton zonage te
+                  permet d&apos;ajouter.
+                </p>
+              </div>
+              <a href={STRIPE_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="btn-primary mt-8" style={{ background: "var(--gradient-signature)" }}>
+                <span className="inline-flex items-center gap-2">
+                  Réserve ta place · 399 $
+                  <ArrowRight className="size-[14px]" strokeWidth={2.5} />
+                </span>
+              </a>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+/* ============================================================
+   TON ÉQUIPE · les 10 employés IA livrés (l'offre, nommée)
+   ============================================================ */
+function TonEquipe() {
+  const postes = [
+    { n: "01", nom: "Le Prospecteur", ligne: "Analyse un deal Centris en 3 minutes : MRB, TGA, cashflow, verdict." },
+    { n: "02", nom: "L'Optimisateur", ligne: "Repère les loyers sous le marché et les revenus qui dorment dans ton parc." },
+    { n: "03", nom: "Le Financement", ligne: "Prépare tes scénarios de refi et tes dossiers pour le banquier." },
+    { n: "04", nom: "La Relationniste", ligne: "Rédige tes communications aux investisseurs et partenaires, dans ton ton." },
+    { n: "05", nom: "L'Adjointe location", ligne: "Annonces, réponses aux prospects, préparation des visites." },
+    { n: "06", nom: "Le Gestionnaire", ligne: "Suivis de maintenance, avis, renouvellements, hausses TAL." },
+    { n: "07", nom: "Le Chef réno", ligne: "Compare les soumissions, détecte les red flags, chiffre le ROI." },
+    { n: "08", nom: "La Comptable", ligne: "Lit tes factures, les classe, sépare TPS/TVQ, prépare QuickBooks." },
+    { n: "09", nom: "L'Adjointe exécutive", ligne: "Ta boîte courriel, tes rappels, tes suivis, ton briefing du matin." },
+    { n: "10", nom: "Le Stratège", ligne: "Ta vue d'ensemble : où est l'argent, où est le temps, quoi faire ensuite." },
+  ];
+  return (
+    <section className="py-24 sm:py-32">
+      <div className="wrap">
+        <Reveal>
+          <div className="text-center mb-12 max-w-3xl mx-auto">
+            <div className="eyebrow-label mb-4">Tu repars avec ça, installé</div>
+            <h2 className="h2-display">
+              Tes <span className="accent">10 employés IA</span>. Prêts à coller dans ton Claude.
+            </h2>
+          </div>
+        </Reveal>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+          {postes.map((p, i) => (
+            <Reveal key={i} delay={((i % 5) + 1) as 1 | 2 | 3 | 4 | 5}>
+              <div className="card card-lift h-full" style={{ padding: "1.25rem 1.35rem" }}>
+                <div className="text-gradient-signature mb-2" style={{ fontFamily: "var(--font-display)", fontSize: "26px", fontWeight: 700, letterSpacing: "-0.03em", lineHeight: 1 }}>
+                  {p.n}
+                </div>
+                <div className="text-[15px] font-semibold text-ink mb-1.5">{p.nom}</div>
+                <div className="text-[13px] text-ink-soft leading-[1.5]">{p.ligne}</div>
+              </div>
+            </Reveal>
+          ))}
+        </div>
+        <Reveal>
+          <p className="mt-10 text-center text-[16px] text-ink-soft max-w-3xl mx-auto leading-[1.6]">
+            Plus <strong className="text-ink">~90 prompts de niveau investisseur</strong>,{" "}
+            <strong className="text-ink">12 Skills</strong> (baux, TAL, annonces,
+            factures, deals), le <strong className="text-ink">calculateur Excel</strong>{" "}
+            de rentabilité avec projection 5 ans, et le{" "}
+            <strong className="text-ink">cas complet d&apos;un 6 logements à Sherbrooke</strong>{" "}
+            qu&apos;on décortique ensemble, du deal à la gestion.
+          </p>
+        </Reveal>
       </div>
     </section>
   );
@@ -963,227 +1070,51 @@ function Trainer() {
 }
 
 /* ============================================================
-   KALIO FUTURE · pattern hero (cartes flottantes Maude + Simon)
+   KALIO FUTURE · preuve de crédibilité compacte (4 agents en prod)
    ============================================================ */
-function MaudeChatContent() {
-  return (
-    <>
-      <div className="chat-header">
-        <div className="chat-avatar">M</div>
-        <div>
-          <div className="chat-name">Maude · Adjointe location</div>
-          <div className="chat-status">
-            <span className="status-dot" />
-            Active · répond en 12 secondes
-          </div>
-        </div>
-      </div>
-      <div className="chat-body">
-        <div className="msg msg-in">
-          Bonjour ! Est-ce que le 4½ sur St-Denis est encore disponible pour le 1er juillet ?
-        </div>
-        <div className="msg msg-out">
-          Oui, il est disponible ! Quelques questions rapides : combien de personnes occuperont le logement ?
-        </div>
-        <div className="msg msg-in">Nous sommes 2 adultes, pas d&apos;animaux.</div>
-        <div className="msg msg-out">
-          Parfait. Je peux vous proposer une visite jeudi 16 h ou samedi 11 h. Lequel vous convient ?
-        </div>
-      </div>
-    </>
-  );
-}
-
-function SimonPhoneContent() {
-  return (
-    <>
-      <div className="flex items-center gap-3 mb-5 relative">
-        <div className="phone-icon">
-          <Phone className="size-5" />
-        </div>
-        <div>
-          <div className="text-[14px] font-semibold">Simon · Concierge virtuel</div>
-          <div className="text-[11.5px] flex items-center gap-1.5" style={{ color: "rgba(255,255,255,0.55)" }}>
-            <span className="status-dot teal" />
-            En appel · 00:42
-          </div>
-        </div>
-      </div>
-      <div className="phone-label">Transcription en direct</div>
-      <div className="phone-transcript mb-4">
-        « Bonjour, c&apos;est Marc Tremblay au 4502 Cartier app 3. Mon{" "}
-        <em>chauffe-eau fait un drôle de bruit</em> depuis hier. »
-      </div>
-      <div className="flex gap-2">
-        <div className="phone-action">Ticket #1284</div>
-        <div className="phone-action primary">Plombier alerté</div>
-      </div>
-    </>
-  );
-}
-
 function KalioFuture() {
-  const agentNameStyle = {
-    fontFamily: "var(--font-display)",
-    fontSize: "clamp(56px, 7vw, 92px)",
-    fontWeight: 600,
-    letterSpacing: "-0.04em",
-    lineHeight: 1,
-  } as const;
-
-  const maudeFeatures = [
-    "Répond en moins de 30 secondes, 24/7",
-    "Préqualifie selon tes critères et booke les visites",
-    "Enquêtes de crédit et préparation des baux",
-    "Onboarding complet des nouveaux locataires",
+  const agents = [
+    { nom: "Maude", role: "Location", desc: "Répond aux prospects 24/7, préqualifie, booke les visites, enquêtes de crédit, baux et onboarding des nouveaux locataires.", teal: true },
+    { nom: "Simon", role: "Concierge 24/7", desc: "Prend les appels et SMS des locataires, diagnostique, filtre les vraies urgences, crée les tickets de maintenance.", teal: false },
+    { nom: "Olivia", role: "Adjointe exécutive", desc: "Tu lui parles à la voix ou par message : courriels triés, brouillons prêts, suivis et rappels. Rien ne part sans ton OK.", teal: true },
+    { nom: "Alice", role: "Comptabilité", desc: "Lit les factures, classe dans la bonne compagnie, écrit dans QuickBooks, repère le refacturable, paie après ton OK.", teal: false },
   ];
-  const simonFeatures = [
-    "Prend les appels téléphoniques",
-    "SMS et messagerie aussi",
-    "Diagnostique avant d'escalader",
-    "Crée le ticket maintenance automatiquement",
-  ];
-
   return (
-    <section className="py-24 sm:py-32 relative overflow-hidden border-y border-line">
+    <section className="py-20 sm:py-24 relative overflow-hidden border-y border-line">
       <div className="absolute inset-0 pointer-events-none opacity-40" style={{ background: "var(--gradient-warm)" }} />
       <div className="wrap relative">
         <Reveal>
-          <div className="text-center max-w-3xl mx-auto mb-20">
-            <div className="eyebrow-label mb-5 justify-center" style={{ display: "inline-flex" }}>
-              La techno qui tourne déjà
-            </div>
-            <h2 className="h2-display mb-6">
-              Ce que <span className="accent">Kalio bâtit</span> pour l&apos;immobilier québécois.
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <div className="eyebrow-label mb-4">La techno qui tourne déjà</div>
+            <h2 className="h2-display mb-5">
+              L&apos;équipe qui te forme fait rouler{" "}
+              <span className="accent">ces agents en production</span>, sur des
+              milliers de portes au Québec.
             </h2>
-            <p className="text-[17px] text-ink-soft leading-[1.6] max-w-[60ch] mx-auto">
-              Tu vas voir Maude et Simon en direct pendant la formation. Tu vois
-              où l&apos;IA s&apos;en va dans la gestion immobilière, et tu
-              repars avec les briques pour commencer toi-même.
+            <p className="text-[16.5px] text-ink-soft leading-[1.6] max-w-[62ch] mx-auto">
+              Tu les vois en démo live au jour 4. Maude et Simon, c&apos;est des
+              années de travail. Ce que tu bâtis en 4 midis, c&apos;est la
+              version qui roule pour <strong className="text-ink">toi</strong>{" "}
+              dès vendredi. Et tu sauras exactement où ça s&apos;en va.
             </p>
           </div>
         </Reveal>
-
-        {/* ROW 1 · MAUDE (text left, chat mockup right) */}
-        <Reveal delay={1}>
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center mb-24 lg:mb-32">
-            <div>
-              <div className="inline-flex items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] font-semibold text-kalio-teal mb-5" style={{ fontFamily: "var(--font-mono)" }}>
-                <span className="size-1.5 rounded-full bg-kalio-teal" style={{ boxShadow: "0 0 8px rgba(0,229,204,0.6)" }} />
-                Agent 01 · Adjointe location
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {agents.map((a, i) => (
+            <Reveal key={i} delay={((i % 4) + 1) as 1 | 2 | 3 | 4}>
+              <div className="card card-lift h-full">
+                <div className="inline-flex items-center gap-2 text-[10.5px] uppercase tracking-[0.18em] font-semibold mb-3" style={{ fontFamily: "var(--font-mono)", color: a.teal ? "var(--kalio-teal)" : "var(--kalio-blue)" }}>
+                  <span className="size-1.5 rounded-full" style={{ background: a.teal ? "var(--kalio-teal)" : "var(--kalio-blue)", boxShadow: a.teal ? "0 0 8px rgba(0,229,204,0.6)" : "0 0 8px rgba(0,119,255,0.6)" }} />
+                  {a.role}
+                </div>
+                <div className="mb-2" style={{ fontFamily: "var(--font-display)", fontSize: "30px", fontWeight: 600, letterSpacing: "-0.03em" }}>
+                  <span className="accent">{a.nom}</span>
+                </div>
+                <p className="text-[13.5px] text-ink-soft leading-[1.55]">{a.desc}</p>
               </div>
-              <h3 className="mb-4" style={agentNameStyle}>
-                <span className="accent">Maude</span>
-              </h3>
-              <p className="text-[20px] sm:text-[22px] text-ink font-medium leading-[1.35] mb-7 max-w-[24ch]">
-                Qualifie tes prospects de location pendant que tu dors.
-              </p>
-              <div className="space-y-4 text-[16px] text-ink-soft leading-[1.65] mb-8 max-w-[58ch]">
-                <p>Sur Messenger, SMS, courriel. Maude répond aux questions des prospects, vérifie les critères de qualification, et booke les visites dans ton agenda en moins de 30 secondes.</p>
-                <p>Et elle va maintenant jusqu&apos;au bout : enquête de crédit, préparation du bail, onboarding du nouveau locataire. Tes prospects ne tombent plus entre deux chaises, et ton inbox ne déborde plus le lundi matin.</p>
-              </div>
-              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 mb-8 max-w-[520px]">
-                {maudeFeatures.map((f, i) => (
-                  <div key={i} className="flex items-start gap-2.5 text-[14.5px] text-ink leading-snug">
-                    <Check className="size-4 text-kalio-teal mt-0.5 shrink-0" strokeWidth={2.5} />
-                    {f}
-                  </div>
-                ))}
-              </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white border border-line-strong text-[12.5px] text-ink-soft font-medium">
-                <span className="size-1.5 rounded-full bg-kalio-teal" style={{ boxShadow: "0 0 6px rgba(0,229,204,0.5)" }} />
-                Déjà en production sur des milliers de portes au Québec
-              </div>
-            </div>
-
-            <div className="relative flex items-center justify-center min-h-[420px]">
-              <div className="absolute rounded-full pointer-events-none" style={{ width: 520, height: 520, background: "radial-gradient(circle, rgba(0,229,204,0.22) 0%, transparent 70%)", filter: "blur(70px)" }} />
-              <div className="chat-card relative" style={{ width: "100%", maxWidth: 440, boxShadow: "0 24px 60px -12px rgba(10,15,30,0.18), 0 8px 20px -8px rgba(10,15,30,0.1)" }}>
-                <MaudeChatContent />
-              </div>
-            </div>
-          </div>
-
-        </Reveal>
-
-        {/* ROW 2 · SIMON (phone mockup left, text right, alternated) */}
-        <Reveal delay={2}>
-          <div className="grid lg:grid-cols-[1fr_1fr] gap-12 lg:gap-20 items-center">
-            <div className="relative flex items-center justify-center min-h-[420px] order-2 lg:order-1">
-              <div className="absolute rounded-full pointer-events-none" style={{ width: 520, height: 520, background: "radial-gradient(circle, rgba(0,119,255,0.22) 0%, transparent 70%)", filter: "blur(70px)" }} />
-              <div className="phone-card relative" style={{ width: "100%", maxWidth: 380, boxShadow: "0 24px 60px -12px rgba(10,15,30,0.32), 0 8px 20px -8px rgba(10,15,30,0.18)" }}>
-                <SimonPhoneContent />
-              </div>
-            </div>
-
-            <div className="order-1 lg:order-2">
-              <div className="inline-flex items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] font-semibold text-kalio-blue mb-5" style={{ fontFamily: "var(--font-mono)" }}>
-                <span className="size-1.5 rounded-full bg-kalio-blue" style={{ boxShadow: "0 0 8px rgba(0,119,255,0.6)" }} />
-                Agent 02 · Concierge virtuel
-              </div>
-              <h3 className="mb-4" style={agentNameStyle}>
-                <span className="accent">Simon</span>
-              </h3>
-              <p className="text-[20px] sm:text-[22px] text-ink font-medium leading-[1.35] mb-7 max-w-[24ch]">
-                Prend les appels et SMS de tes locataires, 24/7.
-              </p>
-              <div className="space-y-4 text-[16px] text-ink-soft leading-[1.65] mb-8 max-w-[58ch]">
-                <p>Chauffage qui marche plus, dégât d&apos;eau, question sur le bail. Simon prend l&apos;appel, diagnostique, donne les bons réflexes au locataire, et escalade seulement quand c&apos;est nécessaire.</p>
-                <p>Plus de réveils à 3 h du matin pour un chauffe-eau. Plus de fils d&apos;attente où ton locataire perd patience avant que tu répondes.</p>
-              </div>
-              <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 mb-8 max-w-[520px]">
-                {simonFeatures.map((f, i) => (
-                  <div key={i} className="flex items-start gap-2.5 text-[14.5px] text-ink leading-snug">
-                    <Check className="size-4 text-kalio-blue mt-0.5 shrink-0" strokeWidth={2.5} />
-                    {f}
-                  </div>
-                ))}
-              </div>
-              <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white border border-line-strong text-[12.5px] text-ink-soft font-medium">
-                <span className="size-1.5 rounded-full bg-kalio-blue" style={{ boxShadow: "0 0 6px rgba(0,119,255,0.5)" }} />
-                Réduit drastiquement les appels d&apos;urgence
-              </div>
-            </div>
-          </div>
-        </Reveal>
-
-        {/* ROW 3 · OLIVIA + ALICE (cartes compactes) */}
-        <Reveal delay={3}>
-          <div className="grid sm:grid-cols-2 gap-6 mt-20 max-w-4xl mx-auto">
-            <div className="card h-full">
-              <div className="inline-flex items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] font-semibold text-kalio-teal mb-4" style={{ fontFamily: "var(--font-mono)" }}>
-                <span className="size-1.5 rounded-full bg-kalio-teal" style={{ boxShadow: "0 0 8px rgba(0,229,204,0.6)" }} />
-                Agent 03 · Adjointe exécutive
-              </div>
-              <h3 className="h3-display mb-3"><span className="accent" style={{ fontFamily: "var(--font-display)" }}>Olivia</span></h3>
-              <p className="text-[15.5px] text-ink-soft leading-[1.6]">
-                Tu lui parles, à la voix ou par message, comme à une vraie
-                adjointe : elle trie tes courriels, prépare tes brouillons,
-                fait tes suivis et tes rappels. Rien ne part sans ton OK.
-              </p>
-            </div>
-            <div className="card h-full">
-              <div className="inline-flex items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] font-semibold text-kalio-blue mb-4" style={{ fontFamily: "var(--font-mono)" }}>
-                <span className="size-1.5 rounded-full bg-kalio-blue" style={{ boxShadow: "0 0 8px rgba(0,119,255,0.6)" }} />
-                Agent 04 · Technicienne comptable
-              </div>
-              <h3 className="h3-display mb-3"><span className="accent" style={{ fontFamily: "var(--font-display)" }}>Alice</span></h3>
-              <p className="text-[15.5px] text-ink-soft leading-[1.6]">
-                Tes factures entrent, elle les lit, les classe dans la bonne
-                compagnie, écrit directement dans QuickBooks, repère les
-                dépenses refacturables et paie le fournisseur après ton ✅.
-              </p>
-            </div>
-          </div>
-        </Reveal>
-
-        <Reveal>
-          <p className="mt-14 text-center text-[16px] text-ink-soft max-w-2xl mx-auto leading-[1.6]">
-            Tu ne bâtiras pas Maude, Simon, Olivia ou Alice en quatre midis.
-            Mais tu vas comprendre exactement où l&apos;IA va, et tes premières
-            automatisations vont déjà rouler avant la fin de la semaine.
-          </p>
-        </Reveal>
+            </Reveal>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -1193,18 +1124,18 @@ function KalioFuture() {
    TESTIMONIALS
    ============================================================ */
 function Testimonials() {
+  // ⚠️ CONSENTEMENT : la citation Trottier vient d'un courriel privé (board Monday
+  // « Preuve sociale », statut À demander). Obtenir son OK AVANT la mise en ligne.
   const testimonials = [
-    { name: "Christian Guillemette", quote: "Les explications étaient claires, avec beaucoup d'exemples concrets. Une journée vraiment appréciée." },
-    { name: "Sophie Lafrenière", quote: "Une journée super bien montée. Du matin au soir, ça tient debout." },
-    { name: "Marie-Claude Hamel", quote: "J'aurais voulu que la journée continue et qu'on aille encore plus loin." },
+    { name: "Martin Trottier · investisseur immobilier", quote: "Si je résume en un mot notre rencontre : WOW! Ta vision, ta formation, ton dynamisme connecte parfaitement avec nous et nos besoins." },
     { name: "Jean-François Bélanger", quote: "Ça m'a donné une vue globale claire sur où on en est avec l'IA, et ce que je peux faire dès maintenant." },
-    // PLACEHOLDER : nouveaux témoignages de la formation en personne (édition du 19 juin), à fournir par Marion
-    // { name: "", quote: "" },
+    { name: "Marie-Claude Hamel", quote: "J'aurais voulu que la journée continue et qu'on aille encore plus loin." },
+    { name: "Christian Guillemette", quote: "Les explications étaient claires, avec beaucoup d'exemples concrets. Une journée vraiment appréciée." },
   ];
   const stats = [
     { v: "4.6", l: "Note globale / 5" },
     { v: "11/12", l: "Recommandent" },
-    { v: "9/12", l: "Veulent une suite" },
+    { v: "9/12", l: "En redemandent" },
   ];
   return (
     <section className="py-24 sm:py-32">
@@ -1392,8 +1323,13 @@ function Logistics() {
                 <p className="text-[14px] text-muted mb-2">
                   Jusqu&apos;au {PRICE_DEADLINE} · ensuite 499 $
                 </p>
-                <p className="text-[13px] text-muted mb-8">
+                <p className="text-[13px] text-muted mb-3">
                   Cohorte limitée à {PLACES} · taxes en sus · paiement sécurisé
+                </p>
+                <div className="mb-6"><Countdown /></div>
+                <p className="text-[13.5px] text-ink-soft mb-8 leading-[1.55]">
+                  Un seul loyer remonté de 100 $/mois, c&apos;est 1 200 $ par
+                  année. La formation se paie au premier logement optimisé.
                 </p>
 
                 <a href={STRIPE_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="btn-primary w-full">
@@ -1428,6 +1364,9 @@ function FAQ() {
     { q: "Mes données de locataires et financières, c'est-tu sécuritaire ?", a: "On couvre ça explicitement dans la formation : exactement quoi mettre et quoi NE PAS mettre dans l'IA, et quelles plateformes respectent ta vie privée. Tu repars en sachant exactement comment opérer de manière responsable." },
     { q: "C'est quoi la différence avec la formation en personne ?", a: "Le même contenu, les mêmes agents qu'on bâtit ensemble, la même formatrice. En ligne, tu sauves le déplacement, tu as le replay de chaque session, et tu paies 399 $ au lieu de 499 $ parce que c'est la première cohorte en ligne." },
     { q: "Comment fonctionne la garantie de remboursement ?", a: "Si à la fin des 4 midis tu n'as pas identifié au moins 5 h/semaine à récupérer dans ta gestion, tu me dis et je te rembourse. Sans débat. Le risque est de mon bord." },
+    { q: "J'utilise déjà ChatGPT. Pourquoi j'aurais besoin d'une formation ?", a: "Parce que poser des questions à une IA pis faire rouler une équipe d'agents configurés sur TON parc, c'est deux mondes. Tu repars avec 10 Projets Claude déjà bâtis pour l'immobilier québécois, 12 Skills (baux, TAL, annonces, factures) et ~90 prompts de niveau investisseur. Des années d'essais-erreurs que tu sautes en 4 midis. Et on te montre comment migrer ta mémoire ChatGPT vers Claude en une heure." },
+    { q: "J'ai 6 portes. Ou j'en ai 400. C'est pour moi ?", a: "Les deux. À 6 portes, tu récupères tes soirées et tu analyses tes prochains deals comme un pro. À 400, chaque agent se multiplie par ton volume : le tri de factures ou le calcul des hausses TAL sur tout ton parc, c'est là que les heures et les dollars deviennent gros. Le contenu s'applique à ton parc à toi, pendant les sessions." },
+    { q: "Pourquoi je bâtirais mes agents moi-même au lieu d'engager Kalio ?", a: "Les deux se complètent. Les agents Kalio comme Maude et Simon prennent en charge des opérations complètes, 24/7. La formation, elle, te rend autonome sur tout le reste : analyses de deals, hausses TAL, factures, courriels. Commence par la formation ; si un jour tu veux déléguer plus loin, tu sauras exactement quoi demander." },
   ];
 
   return (
@@ -1489,13 +1428,17 @@ function FinalCTA() {
         </Reveal>
         <Reveal delay={3}>
           <div className="mt-10 flex flex-col items-center gap-3">
+            <p className="text-[15px] font-medium text-ink">
+              Lundi midi, la première cohorte ouvre son Claude. Avec ou sans toi.
+            </p>
             <a href={STRIPE_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
               <span className="inline-flex items-center gap-2">
                 Réserve ta place · 399 $
                 <ArrowRight className="size-[14px]" strokeWidth={2.5} />
               </span>
             </a>
-            <p className="text-[12.5px] text-muted mt-2">On se voit à l&apos;écran.</p>
+            <Countdown />
+            <p className="text-[12.5px] text-muted mt-1">On se voit à l&apos;écran.</p>
           </div>
         </Reveal>
       </div>
