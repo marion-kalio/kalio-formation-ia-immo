@@ -149,7 +149,7 @@ function Hero() {
               Quatre midis en ligne, de 12 h à 13 h 30, pour bâtir tes 10
               agents IA : ils repèrent les loyers sous le marché, les logements
               que ton zonage permet d&apos;ajouter et les dépenses refacturables,
-              pis ils te redonnent tes soirées (courriels, factures, baux, TAL).
+              pis ils te redonnent tes soirées (courriels, factures, avis, hausses TAL).
               Appliqué à <strong className="text-ink font-medium">ton</strong>{" "}
               parc, au Québec. Replay inclus.
             </p>
@@ -619,11 +619,14 @@ function Agenda() {
         <>
           Le midi que personne d&apos;autre n&apos;offre.{" "}
           <strong>L&apos;IA n&apos;automatise pas le chaos</strong> : si tes
-          factures sont dans trois boîtes courriel et que tes baux dorment sur
-          ton bureau, l&apos;agent le plus intelligent du monde ne pourra rien
-          ranger. On met de l&apos;ordre dans tes processus, tes documents et
-          tes canaux de communication. C&apos;est la fondation sur laquelle tes
-          agents vont travailler.
+          factures sont dans trois boîtes courriel et que tes processus vivent
+          dans ta tête, l&apos;agent le plus intelligent du monde ne pourra
+          rien ranger. On structure tes opérations et ton architecture
+          d&apos;affaires, avec <strong>Monday</strong> comme colonne
+          vertébrale, et on regarde concrètement comment{" "}
+          <strong>connecter ou extraire tes données</strong> de ton logiciel de
+          gestion : Proprio Expert, Plexflow, BuildingStack, UpperBee, Hopem.
+          Zéro migration : on se branche sur ce que tu as déjà.
         </>
       ),
       bullets: [
@@ -632,7 +635,8 @@ function Agenda() {
           ce qui sort, qui fait quoi
         </>,
         <>
-          Une <strong>structure de documents et de données</strong> prête à
+          Tes données de gestion <strong>sorties de ton PMS</strong> (Proprio
+          Expert, Plexflow, BuildingStack, UpperBee, Hopem) et prêtes à
           recevoir l&apos;IA
         </>,
       ],
@@ -675,7 +679,7 @@ function Agenda() {
           On complète tes agents sur les <strong>six grands pans</strong> de
           ton business d&apos;investisseur, avec des démos en direct sur des
           cas concrets que tu vis chaque semaine. Et on termine avec{" "}
-          <strong>Maude</strong> et <strong>Simon</strong>, les agents Kalio en
+          <strong>Maude, Simon, Olivia et Alice</strong>, les agents Kalio en
           production, pour que tu voies exactement où s&apos;en va la gestion
           immo locative.
         </>
@@ -684,8 +688,8 @@ function Agenda() {
         { icon: <Search />, name: "Prospection automatisée", detail: "Analyser un deal Centris en 3 minutes (MRB, TGA, cashflow, refi)" },
         { icon: <HomeIcon />, name: "Louer mieux avec l'IA", detail: "Annonces, photos optimisées, refresh, prospects qualifiés" },
         { icon: <MessageCircle />, name: "Communication locataires", detail: "Tri de courriels, réponses récurrentes, demandes de maintenance" },
-        { icon: <Monitor />, name: "Comptabilité", detail: "Photos de factures triées et rangées dans QuickBooks automatiquement" },
-        { icon: <FileText />, name: "Tâches admin et légales", detail: "Baux, hausses TAL, avis, rapports d'inspection" },
+        { icon: <Monitor />, name: "Comptabilité", detail: "Factures lues, triées, TPS/TVQ séparées : un sommaire prêt à entrer dans QuickBooks" },
+        { icon: <FileText />, name: "Tâches admin et légales", detail: "Hausses TAL calculées et rédigées, avis conformes, renouvellements, rapports d'inspection" },
         { icon: <UserCheck />, name: "Négociation", detail: "Devis fournisseurs, contre-offres vendeurs, comparatifs" },
       ],
       bullets: [
@@ -1028,10 +1032,10 @@ function KalioFuture() {
   } as const;
 
   const maudeFeatures = [
-    "Répond en moins de 30 secondes",
-    "Préqualifie selon tes critères",
-    "Booke dans ton calendrier",
-    "Disponible 24/7, jamais en vacances",
+    "Répond en moins de 30 secondes, 24/7",
+    "Préqualifie selon tes critères et booke les visites",
+    "Enquêtes de crédit et préparation des baux",
+    "Onboarding complet des nouveaux locataires",
   ];
   const simonFeatures = [
     "Prend les appels téléphoniques",
@@ -1076,7 +1080,7 @@ function KalioFuture() {
               </p>
               <div className="space-y-4 text-[16px] text-ink-soft leading-[1.65] mb-8 max-w-[58ch]">
                 <p>Sur Messenger, SMS, courriel. Maude répond aux questions des prospects, vérifie les critères de qualification, et booke les visites dans ton agenda en moins de 30 secondes.</p>
-                <p>Tes prospects ne tombent plus entre deux chaises. Ton inbox ne déborde plus le lundi matin. Et tu ne fais plus de visites qui finissent en perte de temps.</p>
+                <p>Et elle va maintenant jusqu&apos;au bout : enquête de crédit, préparation du bail, onboarding du nouveau locataire. Tes prospects ne tombent plus entre deux chaises, et ton inbox ne déborde plus le lundi matin.</p>
               </div>
               <div className="grid sm:grid-cols-2 gap-x-6 gap-y-2.5 mb-8 max-w-[520px]">
                 {maudeFeatures.map((f, i) => (
@@ -1143,10 +1147,40 @@ function KalioFuture() {
           </div>
         </Reveal>
 
+        {/* ROW 3 · OLIVIA + ALICE (cartes compactes) */}
+        <Reveal delay={3}>
+          <div className="grid sm:grid-cols-2 gap-6 mt-20 max-w-4xl mx-auto">
+            <div className="card h-full">
+              <div className="inline-flex items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] font-semibold text-kalio-teal mb-4" style={{ fontFamily: "var(--font-mono)" }}>
+                <span className="size-1.5 rounded-full bg-kalio-teal" style={{ boxShadow: "0 0 8px rgba(0,229,204,0.6)" }} />
+                Agent 03 · Adjointe exécutive
+              </div>
+              <h3 className="h3-display mb-3"><span className="accent" style={{ fontFamily: "var(--font-display)" }}>Olivia</span></h3>
+              <p className="text-[15.5px] text-ink-soft leading-[1.6]">
+                Tu lui parles, à la voix ou par message, comme à une vraie
+                adjointe : elle trie tes courriels, prépare tes brouillons,
+                fait tes suivis et tes rappels. Rien ne part sans ton OK.
+              </p>
+            </div>
+            <div className="card h-full">
+              <div className="inline-flex items-center gap-2.5 text-[11px] uppercase tracking-[0.22em] font-semibold text-kalio-blue mb-4" style={{ fontFamily: "var(--font-mono)" }}>
+                <span className="size-1.5 rounded-full bg-kalio-blue" style={{ boxShadow: "0 0 8px rgba(0,119,255,0.6)" }} />
+                Agent 04 · Technicienne comptable
+              </div>
+              <h3 className="h3-display mb-3"><span className="accent" style={{ fontFamily: "var(--font-display)" }}>Alice</span></h3>
+              <p className="text-[15.5px] text-ink-soft leading-[1.6]">
+                Tes factures entrent, elle les lit, les classe dans la bonne
+                compagnie, écrit directement dans QuickBooks, repère les
+                dépenses refacturables et paie le fournisseur après ton ✅.
+              </p>
+            </div>
+          </div>
+        </Reveal>
+
         <Reveal>
           <p className="mt-14 text-center text-[16px] text-ink-soft max-w-2xl mx-auto leading-[1.6]">
-            Tu ne bâtiras pas Maude ou Simon en quatre midis. Mais tu vas
-            comprendre exactement où l&apos;IA va, et tes premières
+            Tu ne bâtiras pas Maude, Simon, Olivia ou Alice en quatre midis.
+            Mais tu vas comprendre exactement où l&apos;IA va, et tes premières
             automatisations vont déjà rouler avant la fin de la semaine.
           </p>
         </Reveal>
