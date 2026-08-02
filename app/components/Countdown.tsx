@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-// Fin réelle du prix de lancement : vendredi 8 août 2026, 23 h 59 (heure du Québec).
+// Fin réelle du prix de lancement : SAMEDI 8 août 2026, 23 h 59 (heure du Québec).
 const DEADLINE = new Date("2026-08-08T23:59:59-04:00").getTime();
 
 function restant(): string | null {

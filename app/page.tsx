@@ -31,9 +31,10 @@ import { StickyBar } from "./components/StickyBar";
 
 const STRIPE_CHECKOUT_URL = "https://link.fastpaydirect.com/payment-link/6a4dc0f6c981f3feae6e7ff5";
 
-// Urgence : le 399 $ expire le vendredi 8 août 23 h 59 (ensuite 499 $, changer
-// aussi le lien de paiement GHL à ce moment-là), cohorte affichée à 40 places.
-const PRICE_DEADLINE = "vendredi 8 août 23 h 59";
+// Urgence : le 399 $ expire le SAMEDI 8 août 23 h 59 (le 8 août 2026 est un
+// samedi — même échéance que le Countdown). Ensuite 499 $ : changer aussi le
+// lien de paiement GHL à ce moment-là. Cohorte affichée à 40 places.
+const PRICE_DEADLINE = "samedi 8 août 23 h 59";
 const PLACES = "40 places";
 
 // VSL du hero : mettre l'URL du mp4 monté (ex. "/video/vsl.mp4") dès le tournage.
@@ -92,30 +93,25 @@ function HeroVideo() {
             className="absolute inset-0 w-full h-full object-cover"
           />
         ) : (
-          <div
-            className="absolute inset-0 flex flex-col items-center justify-center gap-3 text-white"
-            style={{
-              background:
-                "radial-gradient(ellipse at 70% 20%, rgba(0,229,204,0.25) 0%, transparent 55%), radial-gradient(ellipse at 20% 90%, rgba(0,119,255,0.25) 0%, transparent 55%), var(--ink)",
-            }}
-          >
-            <div
-              className="size-16 rounded-full flex items-center justify-center"
-              style={{ background: "var(--gradient-signature)", boxShadow: "0 8px 24px rgba(0,119,255,0.4)" }}
-            >
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="white" aria-hidden>
-                <path d="M8 5v14l11-7z" />
-              </svg>
-            </div>
-            <div className="text-[13px] font-medium" style={{ color: "rgba(255,255,255,0.85)" }}>
-              Vidéo de Marion · 2 min 30
-            </div>
-          </div>
+          /* Pas de VSL montée : la photo de Marion occupe le cadre. Aucun faux
+             lecteur (pas d'icône play ni de durée). La vidéo remplace la photo
+             dès que VSL_URL est posée. */
+          <Image
+            src="/team/marion.png"
+            alt="Marion Verschaeve, fondatrice de Kalio"
+            fill
+            sizes="(min-width: 1024px) 45vw, 100vw"
+            className="object-cover"
+            style={{ objectPosition: "50% 22%" }}
+            priority
+          />
         )}
       </div>
-      <p className="text-[13.5px] text-muted mt-2.5 text-center">
-        2 min 30 pour voir ce que tes immeubles cachent.
-      </p>
+      {VSL_URL && (
+        <p className="text-[13.5px] text-muted mt-2.5 text-center">
+          2 min 30 pour voir ce que tes immeubles cachent.
+        </p>
+      )}
     </div>
   );
 }
@@ -144,7 +140,7 @@ export default function Home() {
       <Footer />
       <StickyBar>
         <div className="flex flex-col min-w-0 leading-tight">
-          <span className="text-[12.5px] text-ink-soft">399 $ jusqu&apos;à vendredi 23 h 59</span>
+          <span className="text-[12.5px] text-ink-soft">399 $ jusqu&apos;à samedi 23 h 59</span>
           <Countdown prefix="" />
         </div>
         <a
@@ -174,12 +170,13 @@ function Nav() {
             alt="Kalio"
             width={150}
             height={36}
-            className="h-9 w-auto"
+            className="h-7 sm:h-9 w-auto"
             priority
           />
         </span>
         <a href={STRIPE_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="nav-cta">
-          Réserve ta place · 399 $
+          <span className="sm:hidden">Réserver · 399 $</span>
+          <span className="hidden sm:inline">Réserve ta place · 399 $</span>
         </a>
       </div>
     </header>
@@ -395,9 +392,9 @@ function LeCalcul() {
         {/* MidCta 1 */}
         <Reveal delay={2}>
           <div className="flex flex-col items-center gap-3">
-            <Cta style={{ border: "1px solid rgba(255,255,255,0.18)" }} />
+            <Cta className="btn-primary-on-dark" />
             <p className="text-[13.5px]" style={{ color: "rgba(255,255,255,0.6)" }}>
-              La formation commence lundi midi. 399 $ jusqu&apos;à vendredi 23 h 59.
+              La formation commence lundi midi. 399 $ jusqu&apos;à samedi 23 h 59.
             </p>
           </div>
         </Reveal>
@@ -670,7 +667,7 @@ function TonEquipe() {
           <div className="flex flex-col items-center gap-3 mt-12">
             <Cta />
             <p className="text-[13.5px] text-muted">
-              La formation commence lundi midi. 399 $ jusqu&apos;à vendredi 23 h 59.
+              La formation commence lundi midi. 399 $ jusqu&apos;à samedi 23 h 59.
             </p>
           </div>
         </Reveal>
@@ -838,6 +835,16 @@ function Programme() {
             </span>
           </p>
         </Reveal>
+
+        {/* MidCta 3 */}
+        <Reveal delay={2}>
+          <div className="flex flex-col items-center gap-3 mt-12">
+            <Cta />
+            <p className="text-[13.5px] text-muted">
+              La formation commence lundi midi. 399 $ jusqu&apos;à samedi 23 h 59.
+            </p>
+          </div>
+        </Reveal>
       </div>
     </section>
   );
@@ -882,9 +889,9 @@ function CredibiliteKalio() {
               version, à ton échelle, dès cette semaine.
             </p>
             <p className="text-[15px] text-muted leading-[1.6]">
-              Maude et Simon, c&apos;est des années de travail. Ce que tu bâtis en 4 midis, c&apos;est
-              la version qui roule pour <strong className="text-ink font-semibold">TOI</strong> dès
-              vendredi.
+              Maude et Simon roulent en production sur des milliers de portes. Ce que tu bâtis en 4
+              midis, c&apos;est la version qui roule pour{" "}
+              <strong className="text-ink font-semibold">TOI</strong> dès vendredi.
             </p>
           </div>
         </Reveal>
@@ -1019,6 +1026,16 @@ function Temoignages() {
         <Reveal delay={2}>
           <div className="mt-10 py-5 border-y border-line">
             <ProofRow />
+          </div>
+        </Reveal>
+
+        {/* MidCta 4 */}
+        <Reveal delay={3}>
+          <div className="flex flex-col items-center gap-3 mt-12">
+            <Cta />
+            <p className="text-[13.5px] text-muted">
+              La formation commence lundi midi. 399 $ jusqu&apos;à samedi 23 h 59.
+            </p>
           </div>
         </Reveal>
       </div>
@@ -1219,7 +1236,7 @@ function FinalCTA() {
         </Reveal>
         <Reveal delay={1}>
           <div className="inline-block rounded-[12px] px-5 py-3.5 mb-8" style={{ background: "var(--paper-warm)" }}>
-            <Countdown prefix="399 $ jusqu'au vendredi 8 août 23 h 59 ·" />
+            <Countdown prefix="399 $ jusqu'au samedi 8 août 23 h 59 ·" />
           </div>
         </Reveal>
         <Reveal delay={2}>
