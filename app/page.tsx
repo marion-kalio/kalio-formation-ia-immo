@@ -38,8 +38,12 @@ const PRICE_DEADLINE = "samedi 8 août 23 h 59";
 const PLACES = "40 places";
 
 // VSL du hero : mettre l'URL du mp4 monté (ex. "/video/vsl.mp4") dès le tournage.
-// Tant que null, un cadre réservé s'affiche. À REMPLACER OU RETIRER avant la prod.
+// Tant que null, la photo de Marion occupe le cadre.
 const VSL_URL: string | null = null;
+
+// Citations Trottier + Dupuis : passer à true SEULEMENT quand leur OK est reçu
+// (board Monday « Preuve sociale », statut Consentement → Obtenu).
+const CONSENTEMENTS_OBTENUS = false;
 
 /* ============================================================
    CTA · le même geste partout : payer
@@ -942,7 +946,8 @@ function BioMarion() {
             </p>
           </Reveal>
 
-          {/* CONSENTEMENT à obtenir : citation Philippe Dupuis. Ne pas garder en ligne sans son OK. */}
+          {/* CONSENTEMENT à obtenir : citation Philippe Dupuis. Gated par CONSENTEMENTS_OBTENUS. */}
+          {CONSENTEMENTS_OBTENUS && (
           <Reveal delay={2}>
             <figure className="mt-8 flex gap-4 max-w-[58ch]">
               <span className="w-[3px] shrink-0 rounded-full bg-gradient-signature" aria-hidden />
@@ -956,6 +961,7 @@ function BioMarion() {
               </div>
             </figure>
           </Reveal>
+          )}
         </div>
       </div>
     </section>
@@ -992,7 +998,8 @@ function Temoignages() {
           </div>
         </Reveal>
 
-        {/* CONSENTEMENT à obtenir : citation Martin Trottier. Ne pas garder en ligne sans son OK. */}
+        {/* CONSENTEMENT à obtenir : citation Martin Trottier. Gated par CONSENTEMENTS_OBTENUS. */}
+        {CONSENTEMENTS_OBTENUS && (
         <Reveal delay={1}>
           <figure className="card-accent mb-4">
             <blockquote className="text-[20px] text-ink leading-[1.55] italic" style={{ fontFamily: "var(--font-serif-stack)" }}>
@@ -1004,6 +1011,7 @@ function Temoignages() {
             </figcaption>
           </figure>
         </Reveal>
+        )}
 
         <div className="grid lg:grid-cols-3 gap-4">
           {cartes.map((t, i) => (
