@@ -31,8 +31,8 @@ import { StickyBar } from "./components/StickyBar";
 
 const STRIPE_CHECKOUT_URL = "https://link.fastpaydirect.com/payment-link/6a4dc0f6c981f3feae6e7ff5";
 
-// Urgence : le 399 $ expire le SAMEDI 8 août 23 h 59 (le 8 août 2026 est un
-// samedi — même échéance que le Countdown). Ensuite 499 $ : changer aussi le
+// Urgence : le 399 $ expire le SAMEDI 8 août 23 h 59 (le 8 août 2026 est un
+// samedi — même échéance que le Countdown). Ensuite 499 $ : changer aussi le
 // lien de paiement GHL à ce moment-là. Cohorte affichée à 40 places.
 const PRICE_DEADLINE = "samedi 8 août 23 h 59";
 const PLACES = "40 places";
@@ -49,7 +49,7 @@ const CONSENTEMENTS_OBTENUS = true; // OK de Marion recu le 2 aout
    CTA · le même geste partout : payer
    ============================================================ */
 function Cta({
-  label = "Réserve ta place · 399 $",
+  label = "Réserve ta place · 399 $",
   className = "",
   style,
 }: {
@@ -151,7 +151,7 @@ export default function Home() {
       <Footer />
       <StickyBar>
         <div className="flex flex-col min-w-0 leading-tight">
-          <span className="text-[12.5px] text-ink-soft">399 $ jusqu&apos;à samedi 23 h 59</span>
+          <span className="text-[12.5px] text-ink-soft">399 $ jusqu&apos;à samedi 23 h 59</span>
           <Countdown prefix="" />
         </div>
         <a
@@ -186,8 +186,8 @@ function Nav() {
           />
         </span>
         <a href={STRIPE_CHECKOUT_URL} target="_blank" rel="noopener noreferrer" className="nav-cta">
-          <span className="sm:hidden">Réserver · 399 $</span>
-          <span className="hidden sm:inline">Réserve ta place · 399 $</span>
+          <span className="sm:hidden">Réserver · 399 $</span>
+          <span className="hidden sm:inline">Réserve ta place · 399 $</span>
         </a>
       </div>
     </header>
@@ -229,9 +229,9 @@ function Hero() {
           {/* Ligne équation : desktop seulement ici (mobile : sous la micro-ligne) */}
           <Reveal delay={2}>
             <p className="hidden lg:block text-[14.5px] text-ink-soft mb-8 max-w-[540px]">
-              À un TGA de 5,5 %, chaque 10 000 $ de revenus nets ajoutés vaut environ{" "}
-              <strong className="font-semibold">181 818 $</strong> de valeur d&apos;immeuble. La
-              formation coûte <strong className="font-semibold">399 $</strong>.
+              À un TGA de 5,5 %, chaque 10 000 $ de revenus nets ajoutés vaut environ{" "}
+              <strong className="font-semibold">181 818 $</strong> de valeur d&apos;immeuble. La
+              formation coûte <strong className="font-semibold">399 $</strong>.
             </p>
           </Reveal>
 
@@ -246,12 +246,12 @@ function Hero() {
             <div className="flex flex-col items-stretch sm:items-start gap-3">
               <Cta className="w-full sm:w-auto" />
               <p className="text-[13px] text-muted">
-                399 $ jusqu&apos;au {PRICE_DEADLINE}, ensuite 499 $ · {PLACES} · Replay inclus
+                399 $ jusqu&apos;au {PRICE_DEADLINE}, ensuite 499 $ · {PLACES} · Replay inclus
               </p>
               <p className="lg:hidden text-[14.5px] text-ink-soft max-w-[540px]">
-                À un TGA de 5,5 %, chaque 10 000 $ de revenus nets ajoutés vaut environ{" "}
-                <strong className="font-semibold">181 818 $</strong> de valeur d&apos;immeuble. La
-                formation coûte <strong className="font-semibold">399 $</strong>.
+                À un TGA de 5,5 %, chaque 10 000 $ de revenus nets ajoutés vaut environ{" "}
+                <strong className="font-semibold">181 818 $</strong> de valeur d&apos;immeuble. La
+                formation coûte <strong className="font-semibold">399 $</strong>.
               </p>
             </div>
           </Reveal>
@@ -337,7 +337,7 @@ function LeCalcul() {
   return (
     <section className="dark-section" style={{ paddingTop: "clamp(72px, 10vw, 128px)", paddingBottom: "clamp(72px, 10vw, 128px)" }}>
       <div className="watermark-money" aria-hidden="true">
-        181 818 $
+        181 818 $
       </div>
       <div className="wrap-narrow relative text-center px-6" style={{ zIndex: 2 }}>
         <Reveal>
@@ -349,21 +349,21 @@ function LeCalcul() {
 
         <Reveal delay={1}>
           <h2 className="h2-display text-white mb-8 mx-auto" style={{ maxWidth: "22ch" }}>
-            Un loyer sous le marché, c&apos;est pas juste <span className="accent">270 $</span> par mois.
+            Un loyer sous le marché, c&apos;est pas juste <span className="accent">270 $</span> par mois.
           </h2>
         </Reveal>
 
         <Reveal delay={2}>
           <p className="text-[17px] leading-[1.65] mx-auto mb-10" style={{ color: "rgba(255,255,255,0.75)", maxWidth: "40rem" }}>
-            Prends un 4½ loué 780 $ quand le marché est à 1 050 $. Tu te dis que c&apos;est plate,
-            mais que ça se rattrapera. En attendant, c&apos;est 3 240 $ par année qui dorment. Chaque
+            Prends un 4½ loué 780 $ quand le marché est à 1 050 $. Tu te dis que c&apos;est plate,
+            mais que ça se rattrapera. En attendant, c&apos;est 3 240 $ par année qui dorment. Chaque
             année.
           </p>
         </Reveal>
 
         <Reveal delay={2}>
           <div className="stat-tile mb-10">
-            <div className="stat-number stat-number-1">3 240 $</div>
+            <div className="stat-number stat-number-1">3 240 $</div>
             <div className="stat-label">par année, pour UN seul logement sous le marché</div>
           </div>
         </Reveal>
@@ -374,22 +374,22 @@ function LeCalcul() {
 
         <Reveal delay={1}>
           <p className="text-[17px] leading-[1.65] mx-auto mb-10" style={{ color: "rgba(255,255,255,0.75)", maxWidth: "40rem" }}>
-            Là où ça devient sérieux, c&apos;est à la banque. À un TGA de 5,5 %, chaque 10 000 $ de
-            revenus nets que tu ajoutes vaut environ 181 818 $ de valeur d&apos;immeuble. Pas dans dix
+            Là où ça devient sérieux, c&apos;est à la banque. À un TGA de 5,5 %, chaque 10 000 $ de
+            revenus nets que tu ajoutes vaut environ 181 818 $ de valeur d&apos;immeuble. Pas dans dix
             ans. Au prochain refinancement.
           </p>
         </Reveal>
 
         <Reveal delay={2}>
           <div className="stat-tile mb-10">
-            <div className="stat-number stat-number-2">+10 000 $</div>
+            <div className="stat-number stat-number-2">+10 000 $</div>
             <div className="stat-label">de revenus nets ajoutés</div>
           </div>
         </Reveal>
 
         <Reveal delay={3}>
           <div className="stat-tile mb-12">
-            <div className="stat-number stat-number-3">+181 818 $</div>
+            <div className="stat-number stat-number-3">+181 818 $</div>
             <div className="stat-label">de valeur d&apos;immeuble, à un TGA de 5,5 %</div>
           </div>
         </Reveal>
@@ -407,7 +407,7 @@ function LeCalcul() {
           <div className="flex flex-col items-center gap-3">
             <Cta className="btn-primary-on-dark" />
             <p className="text-[13.5px]" style={{ color: "rgba(255,255,255,0.6)" }}>
-              La formation commence lundi midi. 399 $ jusqu&apos;à samedi 23 h 59.
+              La formation commence lundi midi. 399 $ jusqu&apos;à samedi 23 h 59.
             </p>
           </div>
         </Reveal>
@@ -680,7 +680,7 @@ function TonEquipe() {
           <div className="flex flex-col items-center gap-3 mt-12">
             <Cta />
             <p className="text-[13.5px] text-muted">
-              La formation commence lundi midi. 399 $ jusqu&apos;à samedi 23 h 59.
+              La formation commence lundi midi. 399 $ jusqu&apos;à samedi 23 h 59.
             </p>
           </div>
         </Reveal>
@@ -854,7 +854,7 @@ function Programme() {
           <div className="flex flex-col items-center gap-3 mt-12">
             <Cta />
             <p className="text-[13.5px] text-muted">
-              La formation commence lundi midi. 399 $ jusqu&apos;à samedi 23 h 59.
+              La formation commence lundi midi. 399 $ jusqu&apos;à samedi 23 h 59.
             </p>
           </div>
         </Reveal>
@@ -1056,7 +1056,7 @@ function Temoignages() {
           <div className="flex flex-col items-center gap-3 mt-12">
             <Cta />
             <p className="text-[13.5px] text-muted">
-              La formation commence lundi midi. 399 $ jusqu&apos;à samedi 23 h 59.
+              La formation commence lundi midi. 399 $ jusqu&apos;à samedi 23 h 59.
             </p>
           </div>
         </Reveal>
@@ -1144,10 +1144,10 @@ function Prix() {
 
             <div className="flex items-baseline gap-3 flex-wrap mb-1">
               <span className="text-ink" style={{ fontFamily: "var(--font-display-stack)", fontSize: "clamp(56px, 10vw, 72px)", fontWeight: 700, letterSpacing: "-0.04em", lineHeight: 1 }}>
-                399 $
+                399 $
               </span>
               <span className="text-[20px] text-muted">
-                <span className="line-through">499 $</span> après le {PRICE_DEADLINE}
+                <span className="line-through">499 $</span> après le {PRICE_DEADLINE}
               </span>
             </div>
             <p className="text-[12.5px] text-muted mb-6">Taxes en sus.</p>
@@ -1157,7 +1157,7 @@ function Prix() {
             </div>
 
             <p className="text-[14.5px] text-ink-soft leading-[1.6] mb-4">
-              Un seul loyer remonté de 100 $ par mois, c&apos;est 1 200 $ par année. La formation se
+              Un seul loyer remonté de 100 $ par mois, c&apos;est 1 200 $ par année. La formation se
               paie au premier logement optimisé. Chaque année.
             </p>
             <p className="text-[14.5px] text-ink-soft leading-[1.6] mb-4">
@@ -1215,7 +1215,7 @@ function FAQ() {
     },
     {
       q: "« Et si ça vaut pas la peine? »",
-      a: "La garantie est simple, mot pour mot : « Fais les 4 midis. Si tu n'identifies pas au moins 5 heures par semaine à récupérer, remboursement complet. » Le pire scénario réel, c'est que tu récupères ton 399 $. Le meilleur, tu le connais déjà : tu l'as lu plus haut, en dollars.",
+      a: "La garantie est simple, mot pour mot : « Fais les 4 midis. Si tu n'identifies pas au moins 5 heures par semaine à récupérer, remboursement complet. » Le pire scénario réel, c'est que tu récupères ton 399 $. Le meilleur, tu le connais déjà : tu l'as lu plus haut, en dollars.",
     },
   ];
   return (
@@ -1258,7 +1258,7 @@ function FinalCTA() {
         </Reveal>
         <Reveal delay={1}>
           <div className="inline-block rounded-[12px] px-5 py-3.5 mb-8" style={{ background: "var(--paper-warm)" }}>
-            <Countdown prefix="399 $ jusqu'au samedi 8 août 23 h 59 ·" />
+            <Countdown prefix="399 $ jusqu'au samedi 8 août 23 h 59 ·" />
           </div>
         </Reveal>
         <Reveal delay={2}>

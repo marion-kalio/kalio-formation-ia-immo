@@ -815,6 +815,8 @@ details[open] summary .faq-chevron {
 /* ============================================================
    DARK SECTION (Retournement : seul moment dark de la landing)
    ============================================================ */
+.dark-section .h2-display { color: white; }
+.stat-number { white-space: nowrap; }
 .dark-section {
   background: #06060c;
   color: white;

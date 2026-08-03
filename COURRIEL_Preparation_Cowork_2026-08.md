@@ -15,7 +15,7 @@ Lundi midi, on se lance! Voici tout ce qu'il te faut pour arriver prêt et profi
 ## 📅 Les dates (mets-les à ton agenda tout de suite)
 
 Du lundi 10 au jeudi 13 août, de midi à 13 h 30, en direct sur Zoom.
-Le lien (le même pour les 4 midis): [LIEN ZOOM]
+Le lien (le même pour les 4 midis): https://zoom.us/j/98151639465?pwd=VjBmnoEVeZIgKgzWN3luov1zgLqOuz.1
 (Invitation calendrier en pièce jointe — un clic et les 4 sessions sont dans ton agenda.)
 
 Pas disponible un midi? Pas de stress: les replays sont déposés le soir même dans ton espace membre.
