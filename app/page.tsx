@@ -568,8 +568,8 @@ function Retournement() {
             </h2>
             <p className="text-[19px] text-muted leading-[1.55] max-w-[560px] mx-auto">
               Une équipe de 10 employés IA que tu bâtis en 4 midis. On extrait les données de ton
-              logiciel de gestion pour bâtir leur cerveau commun dans Monday : tes agents
-              connaissent ton parc par cœur.
+              logiciel de gestion pour bâtir le cerveau commun de tes agents : ils connaissent ton
+              parc par cœur.
             </p>
           </div>
         </Reveal>
@@ -1219,7 +1219,7 @@ function FAQ() {
     },
     {
       q: "« Ça me prend quoi? »",
-      a: "Trois affaires : un compte Claude Pro (environ 23 $ CA/mois, annulable en tout temps), un ordinateur, pis tes données d'immeubles. Zéro migration de logiciel : tu gardes ton système de gestion actuel, on en extrait ce qu'il faut pour bâtir ta base de savoir dans Monday (un compte gratuit suffit pour commencer).",
+      a: "Trois affaires : un compte Claude Pro (environ 23 $ CA/mois, annulable en tout temps), un ordinateur, pis tes données d'immeubles. Zéro migration de logiciel : tu gardes ton système de gestion actuel, on en extrait ce qu'il faut pour bâtir ta base de savoir. Pendant la formation on la monte dans Monday (compte gratuit), mais Excel, Airtable ou Asana font aussi la job.",
     },
     {
       q: "« Et si ça vaut pas la peine? »",
