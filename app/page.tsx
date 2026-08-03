@@ -789,7 +789,7 @@ function Programme() {
       phrase: "On bâtit les agents ensemble, chacun dans son Claude.",
       bullets: [
         "Tes employés IA montés en direct, sur tes données",
-        "Connexion à tes outils : QuickBooks, Drive, Calendar, courriels",
+        "Connexion à tes outils : courriels, Drive, Calendar. Et tes rapports QuickBooks analysés.",
         "Tu repars avec une équipe qui roule, pas avec des notes",
       ],
       accent: false,
