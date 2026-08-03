@@ -995,6 +995,44 @@ details[open] summary .faq-chevron {
   margin-top: 2px;
 }
 
+/* Avatars des agents (section crédibilité) : portraits générés, anneau gradient
+   + badge « IA » pour signaler que ce ne sont pas de vraies personnes. */
+.agent-avatar {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  flex: none;
+}
+.agent-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  border: 2px solid transparent;
+  background:
+    linear-gradient(var(--paper-warm), var(--paper-warm)) padding-box,
+    var(--gradient-signature) border-box;
+}
+.agent-avatar .ia-badge {
+  position: absolute;
+  bottom: -4px;
+  right: -6px;
+  background: var(--gradient-signature);
+  color: white;
+  font-family: var(--font-mono-stack);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 2px 5px;
+  border-radius: 100px;
+  border: 2px solid var(--paper);
+  line-height: 1;
+}
+.pillar:hover .agent-avatar .ia-badge {
+  border-color: white;
+}
+
 .eyebrow-badge-soft {
   display: inline-flex;
   align-items: center;

@@ -868,10 +868,10 @@ function Programme() {
    ============================================================ */
 function CredibiliteKalio() {
   const agents = [
-    { icon: <MessageSquare strokeWidth={1.8} />, nom: "Maude", role: "location" },
-    { icon: <Phone strokeWidth={1.8} />, nom: "Simon", role: "concierge 24/7" },
-    { icon: <CalendarClock strokeWidth={1.8} />, nom: "Olivia", role: "adjointe exécutive" },
-    { icon: <Calculator strokeWidth={1.8} />, nom: "Alice", role: "comptabilité" },
+    { photo: "/formation/agents/maude.jpg", nom: "Maude", role: "location" },
+    { photo: "/formation/agents/simon.jpg", nom: "Simon", role: "concierge 24/7" },
+    { photo: "/formation/agents/olivia.jpg", nom: "Olivia", role: "adjointe exécutive" },
+    { photo: "/formation/agents/alice.jpg", nom: "Alice", role: "comptabilité" },
   ];
   return (
     <section className="border-y border-line" style={{ paddingTop: "clamp(36px, 5vw, 64px)", paddingBottom: "clamp(36px, 5vw, 64px)" }}>
@@ -885,8 +885,11 @@ function CredibiliteKalio() {
         <Reveal delay={1}>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 max-w-3xl mx-auto mb-8">
             {agents.map((a, i) => (
-              <div key={i} className="pillar">
-                <div className="pillar-icon">{a.icon}</div>
+              <div key={i} className="pillar items-center">
+                <div className="agent-avatar">
+                  <Image src={a.photo} alt={`${a.nom}, agent IA Kalio (portrait généré)`} width={88} height={88} />
+                  <span className="ia-badge">IA</span>
+                </div>
                 <div>
                   <div className="pillar-name">{a.nom}</div>
                   <div className="pillar-detail">{a.role}</div>
@@ -897,6 +900,10 @@ function CredibiliteKalio() {
         </Reveal>
         <Reveal delay={2}>
           <div className="text-center max-w-[62ch] mx-auto space-y-2">
+            <p className="text-[12.5px] text-muted" style={{ opacity: 0.85 }}>
+              Oui, ils ont un visage. Non, ce sont pas des humains : nos agents sont 100 % IA,
+              portraits générés inclus.
+            </p>
             <p className="text-[15px] text-muted leading-[1.6]">
               Tu les vois en démo live au jour 4. La formation te donne les briques pour bâtir ta
               version, à ton échelle, dès cette semaine.
