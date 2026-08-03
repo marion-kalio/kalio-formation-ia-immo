@@ -441,7 +441,7 @@ function Douleurs() {
               <div className="pillar-icon mb-4">
                 <TrendingDown strokeWidth={1.8} />
               </div>
-              <h3 className="text-[16px] font-semibold text-ink mb-2">L&apos;argent jamais calculé</h3>
+              <h3 className="text-[16px] font-semibold text-ink mb-2">L&apos;argent laissé sur la table</h3>
               <p className="text-[14.5px] text-muted leading-[1.6]">
                 Tu le sais qu&apos;il y a des loyers en dessous du marché dans ton parc. Mais tu
                 l&apos;as jamais calculé logement par logement. Et chaque mois qui passe, c&apos;est de
