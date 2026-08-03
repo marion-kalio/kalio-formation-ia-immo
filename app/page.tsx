@@ -97,18 +97,25 @@ function HeroVideo() {
             className="absolute inset-0 w-full h-full object-cover"
           />
         ) : (
-          /* Pas de VSL montée : la photo de Marion occupe le cadre. Aucun faux
-             lecteur (pas d'icône play ni de durée). La vidéo remplace la photo
-             dès que VSL_URL est posée. */
-          <Image
-            src="/team/marion.png"
-            alt="Marion Verschaeve, fondatrice de Kalio"
-            fill
-            sizes="(min-width: 1024px) 45vw, 100vw"
-            className="object-cover"
-            style={{ objectPosition: "50% 22%" }}
-            priority
-          />
+          /* Pas de VSL montée : la cohorte de juin en salle comble (preuve
+             sociale, cadrage 16:9 natif). Aucun faux lecteur. La vidéo
+             remplace l'image dès que VSL_URL est posée. */
+          <>
+            <Image
+              src="/formation/salle-juin.jpg"
+              alt="Marion Verschaeve enseigne devant la cohorte de juin 2026, salle comble"
+              fill
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              className="object-cover"
+              priority
+            />
+            <div
+              className="absolute inset-x-0 bottom-0 px-5 py-3 text-white text-[13px] font-medium"
+              style={{ background: "linear-gradient(to top, rgba(10,15,30,0.75), transparent)" }}
+            >
+              La cohorte de juin, en salle comble · recommandation 9,6/10
+            </div>
+          </>
         )}
       </div>
       {VSL_URL && (
