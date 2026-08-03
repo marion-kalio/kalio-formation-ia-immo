@@ -220,8 +220,8 @@ function Hero() {
             <p className="text-[19px] leading-[1.55] text-muted mb-6 max-w-[540px]">
               En 4 midis, tu bâtis tes{" "}
               <strong className="text-ink font-medium">10 employés IA</strong> dans ton Claude. Ils
-              trouvent l&apos;argent : loyers sous le marché, dépenses refacturables, logements permis
-              par ton zonage. Et ils te redonnent{" "}
+              trouvent l&apos;argent : loyers sous le marché, hausses jamais appliquées, logements
+              permis par ton zonage. Et ils te redonnent{" "}
               <strong className="text-ink font-medium">tes soirées</strong>. Replay inclus.
             </p>
           </Reveal>
@@ -397,7 +397,7 @@ function LeCalcul() {
         <Reveal delay={1}>
           <p className="text-[17px] leading-[1.65] mx-auto mb-10" style={{ color: "rgba(255,255,255,0.75)", maxWidth: "40rem" }}>
             Pendant la formation, ton Optimisateur scanne ton parc et sort la liste, logement par
-            logement : loyers sous le marché, dépenses refacturables, espaces que ton zonage te permet
+            logement : loyers sous le marché, hausses jamais appliquées, espaces que ton zonage te permet
             d&apos;ajouter. Le calcul que tu viens de lire, tu vas le faire sur TES immeubles.
           </p>
         </Reveal>
@@ -567,8 +567,9 @@ function Retournement() {
               Claude, branchée sur <span className="accent">tes</span> données?
             </h2>
             <p className="text-[19px] text-muted leading-[1.55] max-w-[560px] mx-auto">
-              Pas un autre logiciel à apprendre. Pas une plateforme de plus. Une équipe de 10 employés
-              IA que tu bâtis en 4 midis, et qui travaille avec ce que t&apos;as déjà.
+              Une équipe de 10 employés IA que tu bâtis en 4 midis. On extrait les données de ton
+              logiciel de gestion pour bâtir leur cerveau commun dans Monday : tes agents
+              connaissent ton parc par cœur.
             </p>
           </div>
         </Reveal>
@@ -1218,7 +1219,7 @@ function FAQ() {
     },
     {
       q: "« Ça me prend quoi? »",
-      a: "Trois affaires : un compte Claude Pro (environ 23 $ CA/mois, annulable en tout temps), un ordinateur, pis tes données d'immeubles. C'est tout. Zéro migration de logiciel : tu gardes ton système de gestion actuel, on se branche dessus ou on en extrait ce qu'il faut.",
+      a: "Trois affaires : un compte Claude Pro (environ 23 $ CA/mois, annulable en tout temps), un ordinateur, pis tes données d'immeubles. Zéro migration de logiciel : tu gardes ton système de gestion actuel, on en extrait ce qu'il faut pour bâtir ta base de savoir dans Monday (un compte gratuit suffit pour commencer).",
     },
     {
       q: "« Et si ça vaut pas la peine? »",
