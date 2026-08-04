@@ -41,9 +41,8 @@ const PLACES = "40 places";
 // Tant que null, la photo de Marion occupe le cadre.
 const VSL_URL: string | null = null;
 
-// Citations Trottier + Dupuis : passer à true SEULEMENT quand leur OK est reçu
-// (board Monday « Preuve sociale », statut Consentement → Obtenu).
-const CONSENTEMENTS_OBTENUS = true; // OK de Marion recu le 2 aout
+// ⚠️ Leçon du 4 août 2026 : un consentement doit venir de la PERSONNE CITÉE, par écrit,
+// jamais présumé ou confirmé par un tiers. La citation M.T. a dû être retirée à sa demande.
 
 /* ============================================================
    CTA · le même geste partout : payer
@@ -963,8 +962,8 @@ function BioMarion() {
             </p>
           </Reveal>
 
-          {/* CONSENTEMENT à obtenir : citation Philippe Dupuis. Gated par CONSENTEMENTS_OBTENUS. */}
-          {CONSENTEMENTS_OBTENUS && (
+          {/* Citation Philippe Dupuis — consentement à REVALIDER par écrit auprès de
+              Philippe lui-même (leçon Trottier du 4 août). */}
           <Reveal delay={2}>
             <figure className="mt-8 flex gap-4 max-w-[58ch]">
               <span className="w-[3px] shrink-0 rounded-full bg-gradient-signature" aria-hidden />
@@ -978,7 +977,6 @@ function BioMarion() {
               </div>
             </figure>
           </Reveal>
-          )}
         </div>
       </div>
     </section>
@@ -1020,20 +1018,9 @@ function Temoignages() {
           </div>
         </Reveal>
 
-        {/* CONSENTEMENT à obtenir : citation Martin Trottier. Gated par CONSENTEMENTS_OBTENUS. */}
-        {CONSENTEMENTS_OBTENUS && (
-        <Reveal delay={1}>
-          <figure className="card-accent mb-4">
-            <blockquote className="text-[20px] text-ink leading-[1.55] italic" style={{ fontFamily: "var(--font-serif-stack)" }}>
-              « Si je résume en un mot notre rencontre : <span className="accent">WOW!</span> Ta
-              vision, ta formation, ton dynamisme connecte parfaitement avec nous et nos besoins. »
-            </blockquote>
-            <figcaption className="mt-4 text-[13.5px] text-muted">
-              Martin Trottier · investisseur immobilier
-            </figcaption>
-          </figure>
-        </Reveal>
-        )}
+        {/* RETRAIT DÉFINITIF (4 août 2026) : citation M.T. retirée à sa demande écrite —
+            extrait d'un courriel privé d'avril, jamais autorisé, il n'a pas suivi la
+            formation. NE JAMAIS republier, même avec un futur consentement présumé. */}
 
         <div className="grid lg:grid-cols-3 gap-4">
           {cartes.map((t, i) => (
