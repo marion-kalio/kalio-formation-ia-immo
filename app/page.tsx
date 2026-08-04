@@ -987,23 +987,26 @@ function BioMarion() {
    11. TÉMOIGNAGES · preuve émotionnelle par des pairs
    ============================================================ */
 function Temoignages() {
+  // Citations ANONYMISÉES le 4 août 2026 (leçon Trottier) : verbatims réels des
+  // sondages de sortie, mais noms retirés et cohortes corrigées (3 venaient d'AVRIL,
+  // pas de juin) tant que le consentement ÉCRIT de chaque personne n'est pas reçu.
+  // Remettre les noms UNIQUEMENT sur OK écrit, fiche par fiche (board Monday).
   const cartes = [
     {
-      // Sondage papier 19 juin (autorisation de témoignage signée p.28, attribution probable — Marion confirme)
       quote: "Comprendre ce que Claude Cowork peut faire, c'est fou! Je pense pouvoir devenir une nouvelle version de moi-même d'ici 6 mois. Je veux commencer!",
-      nom: "Catherine · investisseuse, cohorte de juin",
+      nom: "Investisseuse, 30+ portes · sondage de sortie, cohorte de juin",
     },
     {
       quote: "Ça m'a donné une vue globale claire sur où on en est avec l'IA, et ce que je peux faire dès maintenant.",
-      nom: "Jean-François Bélanger · participant, cohorte de juin",
+      nom: "Participant · sondage de sortie, cohorte d'avril",
     },
     {
       quote: "J'aurais voulu que la journée continue et qu'on aille encore plus loin.",
-      nom: "Marie-Claude Hamel · participante, cohorte de juin",
+      nom: "Participante · sondage de sortie, cohorte d'avril",
     },
     {
       quote: "Les explications étaient claires, avec beaucoup d'exemples concrets. Une journée vraiment appréciée.",
-      nom: "Christian Guillemette · participant, cohorte de juin",
+      nom: "Participant · sondage de sortie, cohorte d'avril",
     },
   ];
   return (
